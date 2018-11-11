@@ -2,13 +2,13 @@
   "scripts": {
     "build": "next build && tsc --project tsconfig.server.json",
     "dev": "nodemon server/index.ts",
-    "lint": "tslint 'src/**/*.{ts,tsx}'",
+    "lint": "tslint -p tsconfig.tslint.json",
     "start": "NODE_ENV=production node .next/production-server/index.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "ts:check": "tsc --noEmit",
-    "prettier": "prettier --write \"src/**/*.{js,ts,tsx,json,md}\""
+    "prettier": "prettier --write \"src/**/*.{js,ts,tsx,json,md}\" \"pages/**/*.{js,ts,tsx,json,md}\""
   },
   "dependencies": {
     "next": "latest",
