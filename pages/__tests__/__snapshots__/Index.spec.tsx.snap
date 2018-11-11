@@ -2,8 +2,12 @@
 
 exports[`Index renders correct 1`] = `
 <div>
-  <div>
-    Hello from nextjs and typescript with love!
-  </div>
+  <span
+    onClick={[Function]}
+  >
+    Click me
+     
+    0
+  </span>
 </div>
 `;
