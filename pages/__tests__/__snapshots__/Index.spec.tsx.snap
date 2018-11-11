@@ -2,6 +2,8 @@
 
 exports[`Index renders correct 1`] = `
 <div>
-  Hello from nextjs and typescript with love!
+  <div>
+    Hello from nextjs and typescript with love!
+  </div>
 </div>
 `;

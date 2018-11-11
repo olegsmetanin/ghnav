@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout renders correct 1`] = `
+<div>
+  <div>
+    <title>
+      This is the default title
+    </title>
+  </div>
+</div>
+`;
+
+exports[`Layout renders correct with title 1`] = `
+<div>
+  <div>
+    <title>
+      Homepage
+    </title>
+  </div>
+  Content
+</div>
+`;
