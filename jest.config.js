@@ -15,7 +15,9 @@ module.exports = {
     '<rootDir>/enzyme.config.js',
     '<rootDir>/jest.config.js',
     '<rootDir>/next.config.js',
-    '<rootDir>/pages/',
+    '<rootDir>/pages/_app.tsx',
+    '<rootDir>/pages/_document.tsx',
+    '<rootDir>/pages/_getPageContext.ts',
     '<rootDir>/server/',
     '/__tests__/'
   ]

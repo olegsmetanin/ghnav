@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Layout renders correct 1`] = `
-<div>
+<div
+  className="BaseLayout-root-1"
+>
   <div>
     <title>
       This is the default title
@@ -11,7 +13,9 @@ exports[`Layout renders correct 1`] = `
 `;
 
 exports[`Layout renders correct with title 1`] = `
-<div>
+<div
+  className="BaseLayout-root-1"
+>
   <div>
     <title>
       Homepage

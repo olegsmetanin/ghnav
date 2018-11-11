@@ -1,8 +1,7 @@
-import { mount, shallow } from 'enzyme'
-
 /* eslint-env jest */
 import { Counter } from '../Counter'
 import React from 'react'
+import { shallow } from 'enzyme'
 
 describe('Counter', () => {
   it('renders correct with click', () => {
