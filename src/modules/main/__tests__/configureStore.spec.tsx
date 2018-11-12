@@ -10,7 +10,6 @@ import { put } from 'redux-saga/effects'
 import { rootSaga } from '../rootSaga'
 
 describe('configureStore', () => {
-
   // const OLD_NODE_ENV = process.env.NODE_ENV
 
   // beforeEach(() => {
@@ -70,7 +69,7 @@ describe('configureStore', () => {
 
     await new Promise(resolve => setImmediate(resolve))
 
-    expect(store.getState()).toEqual({issue: { error: 'Bad Request', value: null } })
+    expect(store.getState()).toEqual({ issue: { error: 'Bad Request', value: null } })
   })
 
   // https://stackoverflow.com/questions/48033841/test-process-env-with-jest?rq=1

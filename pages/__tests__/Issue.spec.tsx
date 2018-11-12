@@ -5,12 +5,10 @@ import React from 'react'
 import { all } from 'redux-saga/effects'
 import configureMockStore from 'redux-mock-store'
 import createSagaMiddleware from 'redux-saga'
-import fakeAPIResponse from 'modules/issue/containers/__tests__/issue.stab.json'
 import fetchMock from 'fetch-mock'
+import issueFixture from 'common/testhelpers/__fixtures__/issue.fixure.json'
 import { itemSagas as issueSagas } from 'modules/issue/redux/itemSagas'
-import { mount } from 'enzyme'
 import renderer from 'react-test-renderer'
-// import { rootSaga } from 'modules/main/rootSaga'
 
 const sagaMiddleware = createSagaMiddleware()
 const mockStore = configureMockStore([sagaMiddleware])
@@ -50,7 +48,7 @@ describe('Issue', () => {
 
     fetchMock.get('https://api.github.com/repos/zeit/next.js/issues/5638', {
       status: 200,
-      body: fakeAPIResponse
+      body: issueFixture
     })
 
     const props = await Issue.getInitialProps({
