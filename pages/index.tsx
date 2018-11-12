@@ -1,7 +1,7 @@
 import { WithStyles, withStyles } from '@material-ui/core/styles'
 
-import { CounterConnected } from 'modules/counter/containers/CounterConnected'
 import { Layout } from 'common/layout/Layout'
+import Link from 'next/link'
 import { MainMenu } from 'common/layout/MainMenu'
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
@@ -9,8 +9,6 @@ import Typography from '@material-ui/core/Typography'
 const styles = theme => ({})
 
 class Index extends React.Component<WithStyles<typeof styles>, {}> {
-  next = () => 1
-
   render() {
     return (
       <Layout title="Github issues">
@@ -20,7 +18,11 @@ class Index extends React.Component<WithStyles<typeof styles>, {}> {
               Github issues
             </Typography>
           </MainMenu>
-          <CounterConnected next={this.next}>Click me</CounterConnected>
+          <div>
+            <Link href={{ pathname: 'issue', query: { owner: 'zeit', repo: 'next.js', num: '5630' } }}>
+              <a>Look at the issue</a>
+            </Link>
+          </div>
         </React.Fragment>
       </Layout>
     )

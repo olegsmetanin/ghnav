@@ -7,10 +7,12 @@ import { rootSaga } from './rootSaga'
 const sagaMiddleware = createSagaMiddleware()
 
 const bindMiddleware = middleware => {
+  /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const { composeWithDevTools } = require('redux-devtools-extension')
     return composeWithDevTools(applyMiddleware(...middleware))
   }
+  /* istanbul ignore next */
   return applyMiddleware(...middleware)
 }
 

@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IssueOverview renders correct 1`] = `
+<div
+  className="BaseIssueOverview-root-1"
+>
+  <div
+    className="MuiPaper-root-2 MuiPaper-elevation2-6 MuiPaper-rounded-3 BaseIssueOverview-root-1"
+  >
+    <div
+      className="MuiGrid-container-29 MuiGrid-spacing-xs-16-52"
+    >
+      <div
+        className="MuiGrid-item-30"
+      >
+        <h5
+          className="MuiTypography-root-126 MuiTypography-h5-142 MuiTypography-colorInherit-155"
+        >
+          title
+        </h5>
+      </div>
+      <div
+        className="MuiGrid-item-30"
+      >
+        <h6
+          className="MuiTypography-root-126 MuiTypography-h6-143 MuiTypography-colorInherit-155"
+        />
+      </div>
+      <div
+        className="MuiGrid-item-30"
+      >
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<p>I have iPhone 5s, 6, 7, 8, XS</p>
+",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

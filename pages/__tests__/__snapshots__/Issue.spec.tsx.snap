@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Index renders correct 1`] = `
-<div
-  className="BaseLayout-root-1"
->
+exports[`Issue renders correct 1`] = `
+Array [
   <div
     className="PrimarySearchAppBar-root-2"
   >
@@ -50,13 +48,63 @@ exports[`Index renders correct 1`] = `
             </svg>
           </span>
           <span
-            className="MuiTouchRipple-root-114"
+            className="MuiTouchRipple-root-125"
           />
         </button>
+        <a
+          className="IssuePage-backLink-1"
+          href="/?owner=zeit&repo=next.js"
+          onClick={[Function]}
+        >
+          <button
+            className="MuiButtonBase-root-58 MuiIconButton-root-52 MuiIconButton-colorInherit-53"
+            disabled={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="MuiIconButton-label-57"
+            >
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root-61"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                />
+                <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+              </svg>
+            </span>
+            <span
+              className="MuiTouchRipple-root-125"
+            />
+          </button>
+        </a>
         <h5
           className="MuiTypography-root-70 MuiTypography-h5-86 MuiTypography-colorInherit-99 MuiTypography-noWrap-96"
         >
-          Github issues
+          Github 
+          zeit
+          /
+          next.js
+           #
+          5638
         </h5>
         <div
           className="PrimarySearchAppBar-grow-3"
@@ -109,7 +157,7 @@ exports[`Index renders correct 1`] = `
               </span>
             </span>
             <span
-              className="MuiTouchRipple-root-114"
+              className="MuiTouchRipple-root-125"
             />
           </button>
           <button
@@ -153,7 +201,7 @@ exports[`Index renders correct 1`] = `
               </span>
             </span>
             <span
-              className="MuiTouchRipple-root-114"
+              className="MuiTouchRipple-root-125"
             />
           </button>
           <button
@@ -195,7 +243,7 @@ exports[`Index renders correct 1`] = `
               </svg>
             </span>
             <span
-              className="MuiTouchRipple-root-114"
+              className="MuiTouchRipple-root-125"
             />
           </button>
         </div>
@@ -241,20 +289,59 @@ exports[`Index renders correct 1`] = `
               </svg>
             </span>
             <span
-              className="MuiTouchRipple-root-114"
+              className="MuiTouchRipple-root-125"
             />
           </button>
         </div>
       </div>
     </header>
-  </div>
-  <div>
-    <a
-      href="issue?owner=zeit&repo=next.js&num=5630"
-      onClick={[Function]}
+  </div>,
+  <div
+    className="BaseIssueOverview-root-114"
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "marginTop": 100,
+          "width": "100%",
+        }
+      }
     >
-      Look at the issue
-    </a>
-  </div>
-</div>
+      <div
+        style={
+          Object {
+            "margin": "auto",
+          }
+        }
+      >
+        <div
+          className="MuiCircularProgress-root-115 MuiCircularProgress-colorPrimary-118 MuiCircularProgress-indeterminate-117"
+          role="progressbar"
+          style={
+            Object {
+              "height": 40,
+              "width": 40,
+            }
+          }
+        >
+          <svg
+            className="MuiCircularProgress-svg-120"
+            viewBox="22 22 44 44"
+          >
+            <circle
+              className="MuiCircularProgress-circle-121 MuiCircularProgress-circleIndeterminate-123"
+              cx={44}
+              cy={44}
+              fill="none"
+              r={20.2}
+              strokeWidth={3.6}
+              style={Object {}}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
 `;

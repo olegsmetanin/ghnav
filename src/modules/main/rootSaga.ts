@@ -1,6 +1,6 @@
 import { all } from 'redux-saga/effects'
-import { sagas as counterSagas } from 'modules/counter/redux/sagas'
+import { itemSagas as issueSagas } from 'modules/issue/redux/itemSagas'
 
 export function* rootSaga() {
-  yield all([...counterSagas])
+  yield all([...issueSagas])
 }
