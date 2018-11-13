@@ -1,6 +1,5 @@
 /* eslint-env jest */
 import { MainMenu } from '../MainMenu'
-import Media from 'react-media'
 import React from 'react'
 import { mount } from 'enzyme'
 import renderer from 'react-test-renderer'

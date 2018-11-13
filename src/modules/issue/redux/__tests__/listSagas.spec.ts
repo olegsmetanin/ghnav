@@ -16,14 +16,14 @@ describe('Issue list sagas', () => {
   }
 
   const store = mockStoreWithSaga({
-    initial: { issueList: { value: null } },
+    initial: { issueList: { value: [] } },
     saga: rootSaga
   })
 
   it('should work with load action', async () => {
     fetchMock.get('https://api.github.com/repos/zeit/next.js/issues?state=all&page=0&per_page=10', {
       status: 200,
-      body: { qwe: 123 }
+      body: []
     })
 
     store.dispatch(
@@ -42,15 +42,15 @@ describe('Issue list sagas', () => {
 
     expect(store.getActions()).toEqual([
       {
-        type: 'ISSUE_LIST/LOAD',
-        payload: { owner: 'zeit', repo: 'next.js', page: 0, per_page: 10, filter: { state: 'all' } }
+        payload: { filter: { state: 'all' }, owner: 'zeit', page: 0, per_page: 10, repo: 'next.js' },
+        type: 'ISSUE_LIST/LOAD'
       },
       {
-        type: 'ISSUE_LIST/LOAD_SUCCESS',
         payload: {
-          query: { owner: 'zeit', repo: 'next.js', page: 0, per_page: 10, filter: { state: 'all' } },
-          value: { qwe: 123 }
-        }
+          query: { filter: { state: 'all' }, owner: 'zeit', page: 0, per_page: 10, repo: 'next.js' },
+          value: []
+        },
+        type: 'ISSUE_LIST/LOAD_SUCCESS'
       }
     ])
   })
@@ -81,6 +81,35 @@ describe('Issue list sagas', () => {
         type: 'ISSUE_LIST/LOAD'
       },
       { error: 'Bad Request', type: 'ISSUE_LIST/FAILURE' }
+    ])
+  })
+
+  it('should work with bad response', async () => {
+    fetchMock.get('https://api.github.com/repos/zeit/next.js/issues?state=all&page=0&per_page=10', {
+      status: 200,
+      body: {}
+    })
+
+    store.dispatch(
+      load({
+        owner: 'zeit',
+        repo: 'next.js',
+        page: 0,
+        per_page: 10,
+        filter: {
+          state: 'all'
+        }
+      })
+    )
+
+    await new Promise(resolve => setImmediate(resolve))
+
+    expect(store.getActions()).toEqual([
+      {
+        payload: { filter: { state: 'all' }, owner: 'zeit', page: 0, per_page: 10, repo: 'next.js' },
+        type: 'ISSUE_LIST/LOAD'
+      },
+      { error: 'data is not an array', type: 'ISSUE_LIST/FAILURE' }
     ])
   })
 })

@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IssueList renders button in progress 1`] = `
+<div
+  className="MuiGrid-container-3"
+>
+  <div
+    className="MuiGrid-item-4 MuiGrid-grid-xs-12-43 BaseIssueList-gridItem-1"
+  >
+    <div>
+      <div
+        className="MuiPaper-root-101 MuiPaper-elevation2-105 MuiPaper-rounded-102 BaseIssueListItem-paper-100"
+      >
+        <div>
+          <a
+            href="/issue?owner=owner&repo=repo&num=12"
+            onClick={[Function]}
+          >
+            <h6
+              className="MuiTypography-root-128 MuiTypography-h6-145 MuiTypography-colorInherit-157"
+            >
+              #
+              12
+               
+              title
+               
+            </h6>
+          </a>
+        </div>
+        <div />
+      </div>
+    </div>
+  </div>
+  <div
+    className="BaseIssueList-submitButtonWrap-2"
+  >
+    <button
+      className="MuiButtonBase-root-189 MuiButtonBase-disabled-190 MuiButton-root-163 MuiButton-contained-174 MuiButton-containedPrimary-175 MuiButton-raised-177 MuiButton-raisedPrimary-178 MuiButton-disabled-183"
+      disabled={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex="-1"
+      type="submit"
+    >
+      <span
+        className="MuiButton-label-164"
+      >
+        Loading...
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`IssueList renders correct 1`] = `
+<div
+  className="MuiGrid-container-3"
+>
+  <div
+    className="MuiGrid-item-4 MuiGrid-grid-xs-12-43 BaseIssueList-gridItem-1"
+  >
+    <div>
+      <div
+        className="MuiPaper-root-101 MuiPaper-elevation2-105 MuiPaper-rounded-102 BaseIssueListItem-paper-100"
+      >
+        <div>
+          <a
+            href="/issue?owner=owner&repo=repo&num=12"
+            onClick={[Function]}
+          >
+            <h6
+              className="MuiTypography-root-128 MuiTypography-h6-145 MuiTypography-colorInherit-157"
+            >
+              #
+              12
+               
+              title
+               
+            </h6>
+          </a>
+        </div>
+        <div />
+      </div>
+    </div>
+  </div>
+  <div
+    className="BaseIssueList-submitButtonWrap-2"
+  >
+    <button
+      className="MuiButtonBase-root-189 MuiButton-root-163 MuiButton-contained-174 MuiButton-containedPrimary-175 MuiButton-raised-177 MuiButton-raisedPrimary-178"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex="0"
+      type="submit"
+    >
+      <span
+        className="MuiButton-label-164"
+      >
+        Load more
+      </span>
+      <span
+        className="MuiTouchRipple-root-192"
+      />
+    </button>
+  </div>
+</div>
+`;

@@ -15,7 +15,15 @@ export function* loadSaga(action) {
     if (response.status < 200 || response.status > 300) {
       throw new Error(response.statusText)
     }
-    const value = yield response.json()
+    const orgValue = yield response.json()
+    // not covered with test?
+    if (!(orgValue instanceof Array)) {
+      throw new Error('data is not an array')
+    }
+    const value = orgValue.map(val => ({
+      ...val,
+      num: val.number
+    }))
     yield put(loadSuccess({ query, value }))
   } catch (err) {
     yield put(failure(err.message))

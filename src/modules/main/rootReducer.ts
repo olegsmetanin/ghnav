@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux'
+import { listReducer as issueListReducer } from 'modules/issue/redux/listReducer'
 import { itemReducer as issueReducer } from 'modules/issue/redux/itemReducer'
 
 export const rootReducer = combineReducers({
-  issue: issueReducer
+  issue: issueReducer,
+  issueList: issueListReducer
 })

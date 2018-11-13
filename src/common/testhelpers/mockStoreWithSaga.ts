@@ -5,11 +5,15 @@ export function mockStoreWithSaga({ initial, saga }) {
   const sagaMiddleware = createSagaMiddleware()
   const mockStore = configureMockStore([sagaMiddleware])
   const store = mockStore(initial)
-  store.runSagaTask = () => {
-    store.sagaTask = sagaMiddleware.run(saga)
+
+  const runSagaTaskKey = 'runSagaTask'
+  const sagaTask = 'sagaTask'
+
+  store[runSagaTaskKey] = () => {
+    store[sagaTask] = sagaMiddleware.run(saga)
   }
 
-  store.runSagaTask()
+  store[runSagaTaskKey]()
 
   return store
 }

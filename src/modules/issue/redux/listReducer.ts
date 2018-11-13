@@ -1,23 +1,30 @@
+import { IIssue, IIssueListQuery } from 'interfaces/issue'
+
+import { IProcessState } from 'interfaces/redux'
 import { actionTypes } from './listActions'
 import { handleActions } from 'common/redux/handleActions'
 
-export const initialState = {
-  error: false
+export interface IState {
+  value?: IIssue[]
+  error?: any
+  query?: IIssueListQuery
+  process?: IProcessState
 }
 
-interface IState {
-  value?: any
-  error?: any
-  query?: any
+export const initialState = {
+  error: false,
+  process: {}
 }
 
 export const listReducer = handleActions<IState>(
   {
-    [actionTypes.FAILURE]: (state, action) => {
+    [actionTypes.LOAD]: state => {
       return {
         ...state,
         ...{
-          error: action.error
+          process: {
+            isLoading: true
+          }
         }
       }
     },
@@ -25,8 +32,17 @@ export const listReducer = handleActions<IState>(
       return {
         ...state,
         ...{
-          value: action.payload.value,
-          query: action.payload.query
+          value: action.payload.query.add ? state.value.concat(action.payload.value) : action.payload.value,
+          query: action.payload.query,
+          process: {}
+        }
+      }
+    },
+    [actionTypes.FAILURE]: (state, action) => {
+      return {
+        ...state,
+        ...{
+          error: action.error
         }
       }
     }

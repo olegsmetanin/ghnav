@@ -4,19 +4,47 @@ import { Provider } from 'react-redux'
 import React from 'react'
 import configureMockStore from 'redux-mock-store'
 import createSagaMiddleware from 'redux-saga'
-import { mount } from 'enzyme'
 import renderer from 'react-test-renderer'
-import { rootSaga } from 'modules/main/rootSaga'
 
 const sagaMiddleware = createSagaMiddleware()
 const mockStore = configureMockStore([sagaMiddleware])
 
 describe('Index', () => {
   it('renders correct', () => {
-    const store = mockStore({ counter: { value: 0 } })
+    const initialState = {
+      issueList: {
+        process: {}
+      }
+    }
+    const store = mockStore(initialState)
+    const props = {
+      owner: 'qwe',
+      repo: 'asd'
+    }
     const component = renderer.create(
       <Provider store={store}>
-        <Index />
+        <Index {...props} />
+      </Provider>
+    )
+    const tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('getInitialProps works', async () => {
+    const initialState = {
+      issueList: { value: null }
+    }
+
+    const store = mockStore(initialState)
+    const props = await Index.getInitialProps({
+      ctx: {
+        store,
+        asPath: '/owner=zeit&repo=next.js'
+      }
+    })
+    const component = renderer.create(
+      <Provider store={store}>
+        <Index {...props} />
       </Provider>
     )
     const tree = component.toJSON()

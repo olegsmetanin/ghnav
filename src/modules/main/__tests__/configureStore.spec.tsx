@@ -1,13 +1,8 @@
-import { load, loadSuccess } from 'modules/issue/redux/itemActions'
-
-import { cloneableGenerator } from 'redux-saga/utils'
 import { configureStore } from 'modules/main/configureStore'
-import createSagaMiddleware from 'redux-saga'
-import fakeAPIResponse from 'modules/issue/containers/__tests__/issue.stab.json'
 import fetchMock from 'fetch-mock'
-import { put } from 'redux-saga/effects'
+import { load } from 'modules/issue/redux/itemActions'
+
 /* eslint-env jest */
-import { rootSaga } from '../rootSaga'
 
 describe('configureStore', () => {
   // const OLD_NODE_ENV = process.env.NODE_ENV
@@ -43,7 +38,8 @@ describe('configureStore', () => {
     await new Promise(resolve => setImmediate(resolve))
 
     expect(store.getState()).toEqual({
-      issue: { value: { qwe: 123 }, query: { owner: 'zeit', repo: 'next.js', num: '5638' } }
+      issue: { query: { num: '5638', owner: 'zeit', repo: 'next.js' }, value: { qwe: 123 } },
+      issueList: { error: false, process: {} }
     })
   })
 
@@ -69,7 +65,10 @@ describe('configureStore', () => {
 
     await new Promise(resolve => setImmediate(resolve))
 
-    expect(store.getState()).toEqual({ issue: { error: 'Bad Request', value: null } })
+    expect(store.getState()).toEqual({
+      issue: { error: 'Bad Request', value: null },
+      issueList: { error: false, process: {} }
+    })
   })
 
   // https://stackoverflow.com/questions/48033841/test-process-env-with-jest?rq=1
