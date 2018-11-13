@@ -6,8 +6,23 @@ import Head from 'next/head'
 
 const styles = (theme: Theme) =>
   createStyles({
+    '@global': {
+      a: {
+        color: theme.palette.primary.light,
+        textDecoration: 'none'
+      }
+    },
     root: {
-      paddingTop: theme.spacing.unit * 7
+      width: 'auto',
+      marginLeft: theme.spacing.unit * 3,
+      marginRight: theme.spacing.unit * 3,
+      [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
+        width: 1100,
+        marginLeft: 'auto',
+        marginRight: 'auto'
+      },
+
+      marginTop: theme.spacing.unit * 7
     }
   })
 
