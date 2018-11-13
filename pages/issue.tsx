@@ -5,7 +5,6 @@ import IconButton from '@material-ui/core/IconButton'
 import { IssueOverviewConnected } from 'modules/issue/containers/IssueOverviewConnected'
 import Link from 'next/link'
 import { MainMenu } from 'common/layout/MainMenu'
-import PropTypes from 'prop-types'
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import { load } from 'modules/issue/redux/itemActions'
@@ -55,10 +54,6 @@ class IssuePage extends React.Component<IIssuePage & WithStyles<typeof styles>, 
       </React.Fragment>
     )
   }
-}
-
-IssuePage.propTypes = {
-  classes: PropTypes.object.isRequired
 }
 
 export default withStyles(styles)(IssuePage)

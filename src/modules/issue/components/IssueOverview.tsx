@@ -16,6 +16,16 @@ const styles = (theme: Theme) =>
       margin: 'auto',
       maxWidth: 600,
       padding: theme.spacing.unit * 2
+    },
+    paper: {
+      marginTop: 30,
+      padding: theme.spacing.unit * 2
+    },
+    content: {
+      width: '100%',
+      '& pre': {
+        overflow: 'auto'
+      }
     }
   })
 
@@ -36,10 +46,10 @@ export class BaseIssueOverview extends React.Component<IBaseIssueOverviewProps &
     return (
       <div className={classes.root}>
         {!isDirty && (
-          <Paper className={classes.root}>
+          <Paper className={classes.paper}>
             <Grid container spacing={16}>
               <Grid item key="title">
-                <Typography variant="h5" color="inherit">
+                <Typography variant="h4" color="inherit">
                   {value.title}
                 </Typography>
               </Grid>
@@ -48,7 +58,7 @@ export class BaseIssueOverview extends React.Component<IBaseIssueOverviewProps &
                   {value.created_at}
                 </Typography>
               </Grid>
-              <Grid item key="body">
+              <Grid item key="body" className={classes.content}>
                 <div
                   dangerouslySetInnerHTML={{
                     __html: marked(value.body)

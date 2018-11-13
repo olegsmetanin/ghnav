@@ -48,7 +48,7 @@ Array [
             </svg>
           </span>
           <span
-            className="MuiTouchRipple-root-125"
+            className="MuiTouchRipple-root-127"
           />
         </button>
         <a
@@ -92,7 +92,7 @@ Array [
               </svg>
             </span>
             <span
-              className="MuiTouchRipple-root-125"
+              className="MuiTouchRipple-root-127"
             />
           </button>
         </a>
@@ -157,7 +157,7 @@ Array [
               </span>
             </span>
             <span
-              className="MuiTouchRipple-root-125"
+              className="MuiTouchRipple-root-127"
             />
           </button>
           <button
@@ -201,7 +201,7 @@ Array [
               </span>
             </span>
             <span
-              className="MuiTouchRipple-root-125"
+              className="MuiTouchRipple-root-127"
             />
           </button>
           <button
@@ -243,7 +243,7 @@ Array [
               </svg>
             </span>
             <span
-              className="MuiTouchRipple-root-125"
+              className="MuiTouchRipple-root-127"
             />
           </button>
         </div>
@@ -289,7 +289,7 @@ Array [
               </svg>
             </span>
             <span
-              className="MuiTouchRipple-root-125"
+              className="MuiTouchRipple-root-127"
             />
           </button>
         </div>
@@ -316,7 +316,7 @@ Array [
         }
       >
         <div
-          className="MuiCircularProgress-root-115 MuiCircularProgress-colorPrimary-118 MuiCircularProgress-indeterminate-117"
+          className="MuiCircularProgress-root-117 MuiCircularProgress-colorPrimary-120 MuiCircularProgress-indeterminate-119"
           role="progressbar"
           style={
             Object {
@@ -326,11 +326,11 @@ Array [
           }
         >
           <svg
-            className="MuiCircularProgress-svg-120"
+            className="MuiCircularProgress-svg-122"
             viewBox="22 22 44 44"
           >
             <circle
-              className="MuiCircularProgress-circle-121 MuiCircularProgress-circleIndeterminate-123"
+              className="MuiCircularProgress-circle-123 MuiCircularProgress-circleIndeterminate-125"
               cx={44}
               cy={44}
               fill="none"

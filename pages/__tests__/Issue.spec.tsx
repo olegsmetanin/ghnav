@@ -6,8 +6,9 @@ import { all } from 'redux-saga/effects'
 import configureMockStore from 'redux-mock-store'
 import createSagaMiddleware from 'redux-saga'
 import fetchMock from 'fetch-mock'
-import issueFixture from 'common/testhelpers/__fixtures__/issue.fixure.json'
+import issueFixture from 'fixtures/issue.fixture.json'
 import { itemSagas as issueSagas } from 'modules/issue/redux/itemSagas'
+import { mockStoreWithSaga } from 'common/testhelpers/mockStoreWithSaga'
 import renderer from 'react-test-renderer'
 
 const sagaMiddleware = createSagaMiddleware()
@@ -34,24 +35,21 @@ describe('Issue', () => {
   })
 
   it('works correct with store', async () => {
-    const store = mockStore({ issue: { value: null } })
-
     function* rootSaga() {
       yield all([...issueSagas])
     }
 
-    store.runSagaTask = () => {
-      store.sagaTask = sagaMiddleware.run(rootSaga)
-    }
-
-    store.runSagaTask()
+    const store = mockStoreWithSaga({
+      initial: { issue: { value: null } },
+      saga: rootSaga
+    })
 
     fetchMock.get('https://api.github.com/repos/zeit/next.js/issues/5638', {
       status: 200,
       body: issueFixture
     })
 
-    const props = await Issue.getInitialProps({
+    await Issue.getInitialProps({
       ctx: {
         store,
         asPath: '/issue?owner=zeit&repo=next.js&num=5638'
@@ -64,24 +62,21 @@ describe('Issue', () => {
   })
 
   it('works with errors', async () => {
-    const store = mockStore({ issue: { value: null } })
-
     function* rootSaga() {
       yield all([...issueSagas])
     }
 
-    store.runSagaTask = () => {
-      store.sagaTask = sagaMiddleware.run(rootSaga)
-    }
-
-    store.runSagaTask()
+    const store = mockStoreWithSaga({
+      initial: { issue: { value: null } },
+      saga: rootSaga
+    })
 
     fetchMock.get('https://api.github.com/repos/zeit/next.js/issues/5638', {
       status: 404,
       body: { error: 'no data' }
     })
 
-    const props = await Issue.getInitialProps({
+    await Issue.getInitialProps({
       ctx: {
         store,
         asPath: '/issue?owner=zeit&repo=next.js&num=5638'

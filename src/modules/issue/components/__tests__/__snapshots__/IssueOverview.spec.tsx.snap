@@ -5,29 +5,29 @@ exports[`IssueOverview renders correct 1`] = `
   className="BaseIssueOverview-root-1"
 >
   <div
-    className="MuiPaper-root-2 MuiPaper-elevation2-6 MuiPaper-rounded-3 BaseIssueOverview-root-1"
+    className="MuiPaper-root-4 MuiPaper-elevation2-8 MuiPaper-rounded-5 BaseIssueOverview-paper-2"
   >
     <div
-      className="MuiGrid-container-29 MuiGrid-spacing-xs-16-52"
+      className="MuiGrid-container-31 MuiGrid-spacing-xs-16-54"
     >
       <div
-        className="MuiGrid-item-30"
+        className="MuiGrid-item-32"
       >
-        <h5
-          className="MuiTypography-root-126 MuiTypography-h5-142 MuiTypography-colorInherit-155"
+        <h4
+          className="MuiTypography-root-128 MuiTypography-h4-143 MuiTypography-colorInherit-157"
         >
           title
-        </h5>
+        </h4>
       </div>
       <div
-        className="MuiGrid-item-30"
+        className="MuiGrid-item-32"
       >
         <h6
-          className="MuiTypography-root-126 MuiTypography-h6-143 MuiTypography-colorInherit-155"
+          className="MuiTypography-root-128 MuiTypography-h6-145 MuiTypography-colorInherit-157"
         />
       </div>
       <div
-        className="MuiGrid-item-30"
+        className="MuiGrid-item-32 BaseIssueOverview-content-3"
       >
         <div
           dangerouslySetInnerHTML={

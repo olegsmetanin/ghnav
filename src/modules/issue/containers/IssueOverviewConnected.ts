@@ -8,9 +8,4 @@ const mapStateToProps = state => ({
   query: issueQuerySelector(state)
 })
 
-const mapDispatchToProps = dispatch => ({})
-
-export const IssueOverviewConnected = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(IssueOverview)
+export const IssueOverviewConnected = connect(mapStateToProps)(IssueOverview)
