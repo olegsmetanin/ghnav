@@ -9,5 +9,11 @@
     "object-literal-sort-keys": false,
     "member-access": false,
     "jsx-boolean-value": false
+  },
+  "linterOptions": {
+    "exclude": [
+      "*.json",
+      "**/*.json"
+    ]
   }
 }

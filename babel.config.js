@@ -18,7 +18,9 @@ module.exports = api => {
           root: ['./'],
           alias: {
             common: './src/common',
-            modules: './src/modules'
+            interfaces: '/src/interfaces',
+            modules: './src/modules',
+            fixtures: './src/fixtures',
           }
         }
       ]
