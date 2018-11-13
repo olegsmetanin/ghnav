@@ -4,7 +4,7 @@ describe('handleActions', () => {
   it('works', () => {
     const reducer = handleActions<{}>(
       {
-        ['qwe']: (state, action) => ({ ...state, asd: '2' })
+        ['qwe']: state => ({ ...state, asd: '2' })
       },
       {}
     )
