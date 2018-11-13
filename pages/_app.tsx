@@ -11,7 +11,12 @@ import getPageContext from './_getPageContext'
 import withRedux from 'next-redux-wrapper'
 import withReduxSaga from 'next-redux-saga'
 
-class MyApp extends App {
+interface IApp {
+  store: any
+  pageContext: any
+}
+
+class MyApp extends App<IApp> {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
 
@@ -56,9 +61,6 @@ class MyApp extends App {
             <Provider store={store}>
               <Component pageContext={this.pageContext} {...pageProps} />
             </Provider>
-            {/*
-              <Component pageContext={this.pageContext} {...pageProps} />
-              */}
           </MuiThemeProvider>
         </JssProvider>
       </Container>

@@ -4,7 +4,11 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import flush from 'styled-jsx/server'
 
-class MyDocument extends Document {
+interface IMyDocument {
+  pageContext: any
+}
+
+class MyDocument extends Document<IMyDocument> {
   render() {
     const { pageContext } = this.props
 
