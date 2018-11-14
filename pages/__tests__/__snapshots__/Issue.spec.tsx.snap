@@ -48,7 +48,7 @@ Array [
             </svg>
           </span>
           <span
-            className="MuiTouchRipple-root-127"
+            className="MuiTouchRipple-root-128"
           />
         </button>
         <a
@@ -92,7 +92,7 @@ Array [
               </svg>
             </span>
             <span
-              className="MuiTouchRipple-root-127"
+              className="MuiTouchRipple-root-128"
             />
           </button>
         </a>
@@ -157,7 +157,7 @@ Array [
               </span>
             </span>
             <span
-              className="MuiTouchRipple-root-127"
+              className="MuiTouchRipple-root-128"
             />
           </button>
           <button
@@ -201,7 +201,7 @@ Array [
               </span>
             </span>
             <span
-              className="MuiTouchRipple-root-127"
+              className="MuiTouchRipple-root-128"
             />
           </button>
           <button
@@ -243,7 +243,7 @@ Array [
               </svg>
             </span>
             <span
-              className="MuiTouchRipple-root-127"
+              className="MuiTouchRipple-root-128"
             />
           </button>
         </div>
@@ -289,7 +289,7 @@ Array [
               </svg>
             </span>
             <span
-              className="MuiTouchRipple-root-127"
+              className="MuiTouchRipple-root-128"
             />
           </button>
         </div>
@@ -297,7 +297,7 @@ Array [
     </header>
   </div>,
   <div
-    className="BaseIssueOverview-root-114"
+    className="BaseIssueOverview-root-115"
   >
     <div
       style={
@@ -316,7 +316,7 @@ Array [
         }
       >
         <div
-          className="MuiCircularProgress-root-117 MuiCircularProgress-colorPrimary-120 MuiCircularProgress-indeterminate-119"
+          className="MuiCircularProgress-root-118 MuiCircularProgress-colorPrimary-121 MuiCircularProgress-indeterminate-120"
           role="progressbar"
           style={
             Object {
@@ -326,11 +326,11 @@ Array [
           }
         >
           <svg
-            className="MuiCircularProgress-svg-122"
+            className="MuiCircularProgress-svg-123"
             viewBox="22 22 44 44"
           >
             <circle
-              className="MuiCircularProgress-circle-123 MuiCircularProgress-circleIndeterminate-125"
+              className="MuiCircularProgress-circle-124 MuiCircularProgress-circleIndeterminate-126"
               cx={44}
               cy={44}
               fill="none"

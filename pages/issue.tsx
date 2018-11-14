@@ -1,9 +1,9 @@
 import { WithStyles, createStyles, withStyles } from '@material-ui/core/styles'
 
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
+import { GoBackLink } from 'common/components/GoBackLink'
 import IconButton from '@material-ui/core/IconButton'
 import { IssueOverviewConnected } from 'modules/issue/containers/IssueOverviewConnected'
-import Link from 'next/link'
 import { MainMenu } from 'common/layout/MainMenu'
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
@@ -38,13 +38,13 @@ class IssuePage extends React.Component<IIssuePage & WithStyles<typeof styles>, 
     return (
       <React.Fragment>
         <MainMenu>
-          <Link href={{ pathname: '/', query: { owner, repo } }}>
+          <GoBackLink href={{ pathname: '/', query: { owner, repo } }}>
             <a className={classes.backLink}>
               <IconButton color="inherit">
                 <ChevronLeftIcon />
               </IconButton>
             </a>
-          </Link>
+          </GoBackLink>
 
           <Typography variant="h5" color="inherit" noWrap={true}>
             Github {owner}/{repo} #{num}

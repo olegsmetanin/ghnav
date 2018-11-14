@@ -50,7 +50,7 @@ exports[`Index getInitialProps works 1`] = `
             </svg>
           </span>
           <span
-            className="MuiTouchRipple-root-223"
+            className="MuiTouchRipple-root-224"
           />
         </button>
         <h5
@@ -113,7 +113,7 @@ exports[`Index getInitialProps works 1`] = `
               </span>
             </span>
             <span
-              className="MuiTouchRipple-root-223"
+              className="MuiTouchRipple-root-224"
             />
           </button>
           <button
@@ -157,7 +157,7 @@ exports[`Index getInitialProps works 1`] = `
               </span>
             </span>
             <span
-              className="MuiTouchRipple-root-223"
+              className="MuiTouchRipple-root-224"
             />
           </button>
           <button
@@ -199,7 +199,7 @@ exports[`Index getInitialProps works 1`] = `
               </svg>
             </span>
             <span
-              className="MuiTouchRipple-root-223"
+              className="MuiTouchRipple-root-224"
             />
           </button>
         </div>
@@ -245,7 +245,7 @@ exports[`Index getInitialProps works 1`] = `
               </svg>
             </span>
             <span
-              className="MuiTouchRipple-root-223"
+              className="MuiTouchRipple-root-224"
             />
           </button>
         </div>
@@ -253,7 +253,7 @@ exports[`Index getInitialProps works 1`] = `
     </header>
   </div>
   <div
-    className="MuiGrid-container-116"
+    className="MuiGrid-container-117"
   >
     <div
       style={
@@ -272,7 +272,7 @@ exports[`Index getInitialProps works 1`] = `
         }
       >
         <div
-          className="MuiCircularProgress-root-213 MuiCircularProgress-colorPrimary-216 MuiCircularProgress-indeterminate-215"
+          className="MuiCircularProgress-root-214 MuiCircularProgress-colorPrimary-217 MuiCircularProgress-indeterminate-216"
           role="progressbar"
           style={
             Object {
@@ -282,11 +282,11 @@ exports[`Index getInitialProps works 1`] = `
           }
         >
           <svg
-            className="MuiCircularProgress-svg-218"
+            className="MuiCircularProgress-svg-219"
             viewBox="22 22 44 44"
           >
             <circle
-              className="MuiCircularProgress-circle-219 MuiCircularProgress-circleIndeterminate-221"
+              className="MuiCircularProgress-circle-220 MuiCircularProgress-circleIndeterminate-222"
               cx={44}
               cy={44}
               fill="none"
@@ -352,7 +352,7 @@ exports[`Index renders correct 1`] = `
             </svg>
           </span>
           <span
-            className="MuiTouchRipple-root-223"
+            className="MuiTouchRipple-root-224"
           />
         </button>
         <h5
@@ -415,7 +415,7 @@ exports[`Index renders correct 1`] = `
               </span>
             </span>
             <span
-              className="MuiTouchRipple-root-223"
+              className="MuiTouchRipple-root-224"
             />
           </button>
           <button
@@ -459,7 +459,7 @@ exports[`Index renders correct 1`] = `
               </span>
             </span>
             <span
-              className="MuiTouchRipple-root-223"
+              className="MuiTouchRipple-root-224"
             />
           </button>
           <button
@@ -501,7 +501,7 @@ exports[`Index renders correct 1`] = `
               </svg>
             </span>
             <span
-              className="MuiTouchRipple-root-223"
+              className="MuiTouchRipple-root-224"
             />
           </button>
         </div>
@@ -547,7 +547,7 @@ exports[`Index renders correct 1`] = `
               </svg>
             </span>
             <span
-              className="MuiTouchRipple-root-223"
+              className="MuiTouchRipple-root-224"
             />
           </button>
         </div>
@@ -555,7 +555,7 @@ exports[`Index renders correct 1`] = `
     </header>
   </div>
   <div
-    className="MuiGrid-container-116"
+    className="MuiGrid-container-117"
   >
     <div
       style={
@@ -574,7 +574,7 @@ exports[`Index renders correct 1`] = `
         }
       >
         <div
-          className="MuiCircularProgress-root-213 MuiCircularProgress-colorPrimary-216 MuiCircularProgress-indeterminate-215"
+          className="MuiCircularProgress-root-214 MuiCircularProgress-colorPrimary-217 MuiCircularProgress-indeterminate-216"
           role="progressbar"
           style={
             Object {
@@ -584,11 +584,11 @@ exports[`Index renders correct 1`] = `
           }
         >
           <svg
-            className="MuiCircularProgress-svg-218"
+            className="MuiCircularProgress-svg-219"
             viewBox="22 22 44 44"
           >
             <circle
-              className="MuiCircularProgress-circle-219 MuiCircularProgress-circleIndeterminate-221"
+              className="MuiCircularProgress-circle-220 MuiCircularProgress-circleIndeterminate-222"
               cx={44}
               cy={44}
               fill="none"
