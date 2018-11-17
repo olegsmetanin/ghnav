@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withProps withProps 1`] = `
+<div>
+  {"newprop":1}
+</div>
+`;
