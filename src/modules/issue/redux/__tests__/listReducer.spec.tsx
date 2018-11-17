@@ -54,7 +54,10 @@ describe('IssueList reducer', () => {
 
     const fullState = { issueList: state }
 
-    expect(issueListValueSelector(fullState)).toEqual([{ id: 1, number: '1', owner: 'owner', repo: 'repo' }, { asd: 123 }])
+    expect(issueListValueSelector(fullState)).toEqual([
+      { id: 1, number: '1', owner: 'owner', repo: 'repo' },
+      { asd: 123 }
+    ])
     expect(issueListQuerySelector(fullState)).toEqual({ add: true, qwe: 123 })
   })
 })

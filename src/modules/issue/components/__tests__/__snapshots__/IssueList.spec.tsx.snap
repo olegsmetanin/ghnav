@@ -24,6 +24,7 @@ exports[`IssueList renders button in progress 1`] = `
                
               title
                
+              create_at
             </h6>
           </a>
         </div>
@@ -85,6 +86,7 @@ exports[`IssueList renders correct 1`] = `
                
               title
                
+              create_at
             </h6>
           </a>
         </div>

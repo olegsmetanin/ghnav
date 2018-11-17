@@ -32,7 +32,7 @@ class IssuePage extends React.Component<IIssuePage & WithStyles<typeof styles>, 
   }
 
   render() {
-    const { classes, owner, repo, number } = this.props
+    const { classes, owner, repo, number: num } = this.props
 
     return (
       <React.Fragment>
@@ -46,10 +46,10 @@ class IssuePage extends React.Component<IIssuePage & WithStyles<typeof styles>, 
           </GoBackLink>
 
           <Typography variant="h5" color="inherit" noWrap={true}>
-            Github {owner}/{repo} #{number}
+            Github {owner}/{repo} #{num}
           </Typography>
         </MainMenu>
-        <IssueOverviewConnected {...{ owner, repo, number }} />
+        <IssueOverviewConnected {...{ owner, repo, number: num }} />
       </React.Fragment>
     )
   }

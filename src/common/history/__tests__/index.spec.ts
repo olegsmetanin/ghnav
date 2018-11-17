@@ -12,7 +12,10 @@ describe('history', () => {
     expect(match0).toBe(false)
     const match1 = history.matchPrevious({ pathname: 'issue', query: { owner: 'zeit', repo: 'next.js' } })
     expect(match1).toBe(true)
-    const match2 = history.matchPrevious({ pathname: 'issue', query: { owner: 'zeit', repo: 'next.js', number: '5638' } })
+    const match2 = history.matchPrevious({
+      pathname: 'issue',
+      query: { owner: 'zeit', repo: 'next.js', number: '5638' }
+    })
     expect(match2).toBe(true)
 
     const emitter = new EventEmitter()

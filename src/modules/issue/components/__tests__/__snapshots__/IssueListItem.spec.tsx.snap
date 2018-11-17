@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IssueListItem renders correct 1`] = `
+<div>
+  <div
+    className="MuiPaper-root-2 MuiPaper-elevation2-6 MuiPaper-rounded-3 BaseIssueListItem-paper-1"
+  >
+    <div>
+      <a
+        href="/issue?owner=&repo=&number=123"
+        onClick={[Function]}
+      >
+        <h6
+          className="MuiTypography-root-29 MuiTypography-h6-46 MuiTypography-colorInherit-58"
+        >
+          #
+          123
+           
+          title
+           
+          2018-11-17
+        </h6>
+      </a>
+    </div>
+    <div />
+  </div>
+</div>
+`;

@@ -39,8 +39,8 @@ export interface IBaseIssueOverviewProps {
 
 export class BaseIssueOverview extends React.Component<IBaseIssueOverviewProps & WithStyles<typeof styles>, {}> {
   render() {
-    const { classes, value, query, owner, repo, number } = this.props
-    const isDirty = !(value && query && query.owner === owner && query.repo === repo && query.number === number)
+    const { classes, value, query, owner, repo, number: num } = this.props
+    const isDirty = !(value && query && query.owner === owner && query.repo === repo && query.number === num)
 
     return (
       <div className={classes.root}>
