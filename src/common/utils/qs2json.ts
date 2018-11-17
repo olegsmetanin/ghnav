@@ -6,5 +6,5 @@ export function qs2json(queryString: string) {
   if (index >= 0) {
     trimmed = queryString.substr(index + 1)
   }
-  return qs.parse(trimmed)
+  return qs.parse(trimmed, { allowDots: true })
 }

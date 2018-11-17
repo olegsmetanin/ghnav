@@ -7,5 +7,6 @@ describe('qs2json', () => {
     expect(qs2json('/?asd=123')).toEqual({ asd: '123' })
     expect(qs2json('?asd=123')).toEqual({ asd: '123' })
     expect(qs2json('asd=123')).toEqual({ asd: '123' })
+    expect(qs2json('')).toEqual({})
   })
 })
