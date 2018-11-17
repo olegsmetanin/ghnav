@@ -20,11 +20,10 @@ const styles = () =>
 export interface IIssuePage {
   owner: string
   repo: string
-  num: string
+  number: string
 }
 
 class IssuePage extends React.Component<IIssuePage & WithStyles<typeof styles>, {}> {
-  // http://localhost:3000/issue?owner=zeit&repo=next.js&num=5638
   static async getInitialProps({ ctx }) {
     const { store } = ctx
     const query = qs2json(ctx.asPath)
@@ -33,7 +32,7 @@ class IssuePage extends React.Component<IIssuePage & WithStyles<typeof styles>, 
   }
 
   render() {
-    const { classes, owner, repo, num } = this.props
+    const { classes, owner, repo, number } = this.props
 
     return (
       <React.Fragment>
@@ -47,10 +46,10 @@ class IssuePage extends React.Component<IIssuePage & WithStyles<typeof styles>, 
           </GoBackLink>
 
           <Typography variant="h5" color="inherit" noWrap={true}>
-            Github {owner}/{repo} #{num}
+            Github {owner}/{repo} #{number}
           </Typography>
         </MainMenu>
-        <IssueOverviewConnected {...{ owner, repo, num }} />
+        <IssueOverviewConnected {...{ owner, repo, number }} />
       </React.Fragment>
     )
   }

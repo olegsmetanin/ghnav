@@ -23,16 +23,16 @@ interface IBaseIssueListItemProps {
 export class BaseIssueListItem extends React.Component<IBaseIssueListItemProps & WithStyles<typeof styles>, {}> {
   render() {
     const { classes, value, owner, repo } = this.props
-    const { title, num } = value
+    const { title, number } = value
 
     return (
       <div>
         <Paper className={classes.paper}>
           <div>
-            <Link href={{ pathname: '/issue', query: { owner, repo, num } }}>
+            <Link href={{ pathname: '/issue', query: { owner, repo, number } }}>
               <a>
                 <Typography variant="h6" color="inherit">
-                  #{num} {title} {}
+                  #{number} {title} {}
                 </Typography>
               </a>
             </Link>

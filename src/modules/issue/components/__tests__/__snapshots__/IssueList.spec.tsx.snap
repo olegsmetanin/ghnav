@@ -13,7 +13,7 @@ exports[`IssueList renders button in progress 1`] = `
       >
         <div>
           <a
-            href="/issue?owner=owner&repo=repo&num=12"
+            href="/issue?owner=owner&repo=repo&number=12"
             onClick={[Function]}
           >
             <h6
@@ -74,7 +74,7 @@ exports[`IssueList renders correct 1`] = `
       >
         <div>
           <a
-            href="/issue?owner=owner&repo=repo&num=12"
+            href="/issue?owner=owner&repo=repo&number=12"
             onClick={[Function]}
           >
             <h6

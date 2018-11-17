@@ -30,7 +30,7 @@ describe('configureStore', () => {
     const query = {
       owner: 'zeit',
       repo: 'next.js',
-      num: '5638'
+      number: '5638'
     }
 
     store.dispatch(load(query))
@@ -38,7 +38,7 @@ describe('configureStore', () => {
     await new Promise(resolve => setImmediate(resolve))
 
     expect(store.getState()).toEqual({
-      issue: { query: { num: '5638', owner: 'zeit', repo: 'next.js' }, value: { qwe: 123 } },
+      issue: { query: { number: '5638', owner: 'zeit', repo: 'next.js' }, value: { qwe: 123 } },
       issueList: { error: false, process: {} }
     })
   })
@@ -58,7 +58,7 @@ describe('configureStore', () => {
     const query = {
       owner: 'zeit',
       repo: 'next.js',
-      num: '5640'
+      number: '5640'
     }
 
     store.dispatch(load(query))

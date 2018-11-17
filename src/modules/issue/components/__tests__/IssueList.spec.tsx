@@ -8,13 +8,13 @@ describe('IssueList', () => {
     const props = {
       owner: 'owner',
       repo: 'repo',
-      num: '1',
+      number: '1',
       page: 1,
       per_page: 10,
       items: [
         {
           id: '12',
-          num: '12',
+          number: '12',
           // markdown
           body: 'I have iPhone 5s, 6, 7, 8, XS',
           title: 'title',
@@ -24,7 +24,7 @@ describe('IssueList', () => {
       query: {
         owner: 'owner',
         repo: 'repo',
-        num: 'num',
+        number: 'number',
         page: 1,
         per_page: 10,
         filter: {
@@ -45,13 +45,13 @@ describe('IssueList', () => {
     const props = {
       owner: 'owner',
       repo: 'repo',
-      num: 'num',
+      number: 'number',
       page: 1,
       per_page: 10,
       items: [
         {
           id: '12',
-          num: '12',
+          number: '12',
           // markdown
           body: 'I have iPhone 5s, 6, 7, 8, XS',
           title: 'title',
@@ -61,7 +61,7 @@ describe('IssueList', () => {
       query: {
         owner: 'owner',
         repo: 'repo',
-        num: 'num',
+        number: 'number',
         page: 1,
         per_page: 10,
         filter: {

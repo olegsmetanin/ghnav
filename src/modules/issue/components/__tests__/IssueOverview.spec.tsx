@@ -8,7 +8,7 @@ describe('IssueOverview', () => {
     const props = {
       owner: 'owner',
       repo: 'repo',
-      num: 'num',
+      number: 'number',
       value: {
         // markdown
         body: 'I have iPhone 5s, 6, 7, 8, XS',
@@ -18,7 +18,7 @@ describe('IssueOverview', () => {
       query: {
         owner: 'owner',
         repo: 'repo',
-        num: 'num'
+        number: 'number'
       }
     }
     const component = renderer.create(<IssueOverview {...props} />)

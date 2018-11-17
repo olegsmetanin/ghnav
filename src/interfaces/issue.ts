@@ -1,7 +1,7 @@
 export interface IIssue {
   id: string
   title: string
-  num: string
+  number: string
   create_at: string
   body: string
 }

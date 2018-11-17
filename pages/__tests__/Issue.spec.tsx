@@ -22,7 +22,7 @@ describe('Issue', () => {
     const props = await Issue.getInitialProps({
       ctx: {
         store,
-        asPath: '/issue?owner=zeit&repo=next.js&num=5638'
+        asPath: '/issue?owner=zeit&repo=next.js&number=5638'
       }
     })
     const component = renderer.create(
@@ -52,7 +52,7 @@ describe('Issue', () => {
     await Issue.getInitialProps({
       ctx: {
         store,
-        asPath: '/issue?owner=zeit&repo=next.js&num=5638'
+        asPath: '/issue?owner=zeit&repo=next.js&number=5638'
       }
     })
 
@@ -79,7 +79,7 @@ describe('Issue', () => {
     await Issue.getInitialProps({
       ctx: {
         store,
-        asPath: '/issue?owner=zeit&repo=next.js&num=5638'
+        asPath: '/issue?owner=zeit&repo=next.js&number=5638'
       }
     })
 

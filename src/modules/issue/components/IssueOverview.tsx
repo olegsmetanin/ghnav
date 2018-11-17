@@ -34,14 +34,13 @@ export interface IBaseIssueOverviewProps {
   query: any
   owner: string
   repo: string
-  num: string
+  number: string
 }
 
 export class BaseIssueOverview extends React.Component<IBaseIssueOverviewProps & WithStyles<typeof styles>, {}> {
   render() {
-    const { classes, value, query, owner, repo, num } = this.props
-    // console.log('render', query, owner, repo, number)
-    const isDirty = !(value && query && query.owner === owner && query.repo === repo && query.num === num)
+    const { classes, value, query, owner, repo, number } = this.props
+    const isDirty = !(value && query && query.owner === owner && query.repo === repo && query.number === number)
 
     return (
       <div className={classes.root}>
