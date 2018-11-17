@@ -1,5 +1,6 @@
 /* eslint-env jest */
-import { GoBackLink } from '../GoBackLink'
+import { BaseGoBackLink, GoBackLink } from '../GoBackLink'
+
 /* eslint-env jest */
 import React from 'react'
 import { mount } from 'enzyme'
@@ -16,58 +17,36 @@ jest.mock('next/link', () => {
 
 describe('GoBackLink', () => {
   it('renders', async () => {
-    const router = {
-      back: jest.fn()
-    }
-
     const history = {
-      matchPrevious: () => true
+      back: jest.fn(),
+      matchPreviousPathname: () => true
     }
 
     const tree = mount(
-      <GoBackLink href="/qwe" router={router} history={history}>
+      <BaseGoBackLink href="/qwe" history={history}>
         <a>Hello</a>
-      </GoBackLink>
+      </BaseGoBackLink>
     )
 
     tree.simulate('click')
 
-    expect(router.back.mock.calls.length).toBe(1)
+    expect(history.back.mock.calls.length).toBe(1)
   })
 
   it('not allow clicks if no valid router', async () => {
-    const router = {
-      back: jest.fn()
-    }
-
     const history = {
-      matchPrevious: () => false
+      back: jest.fn(),
+      matchPreviousPathname: () => false
     }
 
     const tree = mount(
-      <GoBackLink href="/qwe" router={router} history={history}>
+      <BaseGoBackLink href="/qwe" history={history}>
         <a>Hello</a>
-      </GoBackLink>
+      </BaseGoBackLink>
     )
 
     tree.simulate('click')
 
-    expect(router.back.mock.calls.length).toBe(0)
-  })
-
-  it('not allow clicks if no valid router', async () => {
-    const router = {
-      back: jest.fn()
-    }
-
-    const tree = mount(
-      <GoBackLink href="/qwe" router={router}>
-        <a>Hello</a>
-      </GoBackLink>
-    )
-
-    tree.simulate('click')
-
-    expect(router.back.mock.calls.length).toBe(0)
+    expect(history.back.mock.calls.length).toBe(0)
   })
 })

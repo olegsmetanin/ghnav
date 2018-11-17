@@ -1,27 +1,26 @@
+import { IHistory, history } from 'common/history'
+
 import Link from 'next/link'
 import React from 'react'
-// import Router from 'next/router'
-import { history as globalHistory } from 'common/history'
-import { withRouter } from 'next/router'
+import { withProps } from 'common/hoc/withProps'
 
 interface IBaseGoBackLinkProps {
   href: any
-  router: any
-  history?: any
+  history?: IHistory
 }
 
 export class BaseGoBackLink extends React.Component<IBaseGoBackLinkProps, {}> {
   onClick = e => {
     e.stopPropagation()
     e.preventDefault()
-    this.props.router.back()
+    this.props.history.back()
   }
 
   render() {
-    const { children, router, history, ...props } = this.props
+    const { children, history: hist, ...props } = this.props
     const { href } = props
 
-    const match = (history || globalHistory).matchPrevious(href)
+    const match = hist.matchPreviousPathname(href)
 
     return (
       // Do not pass router and history in Link
@@ -30,4 +29,4 @@ export class BaseGoBackLink extends React.Component<IBaseGoBackLinkProps, {}> {
   }
 }
 
-export const GoBackLink = withRouter(BaseGoBackLink)
+export const GoBackLink = withProps(() => ({ history }))(BaseGoBackLink)

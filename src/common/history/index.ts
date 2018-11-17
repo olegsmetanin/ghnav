@@ -1,20 +1,43 @@
 import Router from 'next/router'
 import { isMatch } from 'lodash'
 import { qs2json } from 'common/utils/qs2json'
+import { qs2pathname } from 'common/utils/qs2pathname'
 
-// TODO: write HOC withHistory
-export class History {
+export interface IHistoryEntity {
+  pathname: string
+  query: object
+}
+
+export interface IHistory {
+  get: () => IHistoryEntity[]
+  push: (url) => void
+  matchPrevious: (IHistoryEntity) => boolean
+  matchPreviousPathname: (IHistoryEntity) => boolean
+  isComeBack: boolean
+  back: () => void
+}
+
+export class History implements IHistory {
   history = []
 
+  router = null
+
+  isComeBack = false
+
   constructor(router) {
+    this.router = router
+    if (typeof window !== 'undefined') {
+      this.push(window.location.pathname + window.location.search)
+    }
+
     router.events.on('routeChangeComplete', url => {
+      this.isComeBack = false
       this.push(url)
     })
   }
 
   push = url => {
-    const index = url.indexOf('?')
-    const pathname = url.substr(0, index)
+    const pathname = qs2pathname(url)
     const query = qs2json(url)
     const hr = { pathname, query }
 
@@ -29,6 +52,17 @@ export class History {
     const previous = this.previous()
     const matched = isMatch(previous, linkHref)
     return matched
+  }
+
+  matchPreviousPathname = linkHref => {
+    const previous = this.previous()
+    const matched = previous && linkHref.pathname === previous.pathname
+    return matched
+  }
+
+  back = () => {
+    this.isComeBack = true
+    this.router.back()
   }
 
   get = () => this.history
