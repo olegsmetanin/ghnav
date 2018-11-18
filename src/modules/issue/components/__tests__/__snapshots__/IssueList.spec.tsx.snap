@@ -1,128 +1,281 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`IssueList renders button in progress 1`] = `
-<div
-  className="MuiGrid-container-3"
->
-  <div
-    className="MuiGrid-item-4 MuiGrid-grid-xs-12-43 BaseIssueList-gridItem-1"
-  >
-    <div>
+exports[`IssueList renders button in loading state 1`] = `
+<div>
+  <div>
+    <header
+      className="MuiPaper-root-16 MuiPaper-elevation4-22 MuiAppBar-root-7 MuiAppBar-positionFixed-8 MuiAppBar-colorDefault-13 mui-fixed BaseIssueListMenu-appBar-4"
+    >
       <div
-        className="MuiPaper-root-101 MuiPaper-elevation2-105 MuiPaper-rounded-102 BaseIssueListItem-paper-100"
+        className="MuiToolbar-root-43 MuiToolbar-dense-46 MuiToolbar-gutters-44"
       >
-        <div>
-          <a
-            href="/issue?owner=owner&repo=repo&number=12"
-            onClick={[Function]}
+        <div
+          className="BaseIssueListMenu-filter-5"
+        >
+          <div
+            className="BaseIssueListMenu-filterItem-6"
           >
             <h6
-              className="MuiTypography-root-128 MuiTypography-h6-145 MuiTypography-colorInherit-157"
+              className="MuiTypography-root-47 MuiTypography-h6-64 MuiTypography-colorInherit-76"
             >
-              #
-              12
-               
-              title
-               
-              create_at
+              State
             </h6>
-          </a>
+          </div>
+          <div
+            className="BaseIssueListMenu-filterItem-6"
+          >
+            <div
+              className="MuiInputBase-root-102 MuiInput-root-89 MuiInput-underline-93"
+              onClick={[Function]}
+            >
+              <div
+                className="MuiSelect-root-82"
+              >
+                <div
+                  aria-haspopup="true"
+                  aria-pressed="false"
+                  className="MuiSelect-select-83 MuiSelect-selectMenu-86 MuiInputBase-input-112 MuiInput-input-97"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex={0}
+                >
+                  All
+                </div>
+                <input
+                  id="state"
+                  name="state"
+                  type="hidden"
+                  value="all"
+                />
+                <svg
+                  aria-hidden="true"
+                  className="MuiSvgIcon-root-119 MuiSelect-icon-88"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7 10l5 5 5-5z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
-        <div />
       </div>
+    </header>
+  </div>
+  <div
+    className="BaseIssueList-progress-3"
+  >
+    <div
+      className="MuiLinearProgress-root-266 MuiLinearProgress-colorPrimary-267"
+      role="progressbar"
+    >
+      <div
+        className="MuiLinearProgress-bar-274 MuiLinearProgress-barColorPrimary-275 MuiLinearProgress-bar1Indeterminate-277"
+        style={Object {}}
+      />
+      <div
+        className="MuiLinearProgress-bar-274 MuiLinearProgress-barColorPrimary-275 MuiLinearProgress-bar2Indeterminate-280"
+        style={Object {}}
+      />
     </div>
   </div>
   <div
-    className="BaseIssueList-submitButtonWrap-2"
+    className="MuiGrid-container-132"
   >
-    <button
-      className="MuiButtonBase-root-189 MuiButtonBase-disabled-190 MuiButton-root-163 MuiButton-contained-174 MuiButton-containedPrimary-175 MuiButton-raised-177 MuiButton-raisedPrimary-178 MuiButton-disabled-183"
-      disabled={true}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex="-1"
-      type="submit"
+    <div
+      className="MuiGrid-item-133 MuiGrid-grid-xs-12-172 BaseIssueList-gridItem-1"
     >
-      <span
-        className="MuiButton-label-164"
+      <div>
+        <div
+          className="MuiPaper-root-16 MuiPaper-elevation2-20 MuiPaper-rounded-17 BaseIssueListItem-paper-229"
+        >
+          <div>
+            <a
+              href="/issue?owner=owner&repo=repo&number=12"
+              onClick={[Function]}
+            >
+              <h6
+                className="MuiTypography-root-47 MuiTypography-h6-64 MuiTypography-colorInherit-76"
+              >
+                #
+                12
+                 
+                title
+                 
+                create_at
+              </h6>
+            </a>
+          </div>
+          <div />
+        </div>
+      </div>
+    </div>
+    <div
+      className="BaseIssueList-submitButtonWrap-2"
+    >
+      <button
+        className="MuiButtonBase-root-256 MuiButtonBase-disabled-257 MuiButton-root-230 MuiButton-contained-241 MuiButton-containedPrimary-242 MuiButton-raised-244 MuiButton-raisedPrimary-245 MuiButton-disabled-250"
+        disabled={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="-1"
+        type="submit"
       >
-        Loading...
-      </span>
-    </button>
+        <span
+          className="MuiButton-label-231"
+        >
+          Loading...
+        </span>
+      </button>
+    </div>
   </div>
 </div>
 `;
 
 exports[`IssueList renders correct 1`] = `
-<div
-  className="MuiGrid-container-3"
->
-  <div
-    className="MuiGrid-item-4 MuiGrid-grid-xs-12-43 BaseIssueList-gridItem-1"
-  >
-    <div>
+<div>
+  <div>
+    <header
+      className="MuiPaper-root-16 MuiPaper-elevation4-22 MuiAppBar-root-7 MuiAppBar-positionFixed-8 MuiAppBar-colorDefault-13 mui-fixed BaseIssueListMenu-appBar-4"
+    >
       <div
-        className="MuiPaper-root-101 MuiPaper-elevation2-105 MuiPaper-rounded-102 BaseIssueListItem-paper-100"
+        className="MuiToolbar-root-43 MuiToolbar-dense-46 MuiToolbar-gutters-44"
       >
-        <div>
-          <a
-            href="/issue?owner=owner&repo=repo&number=12"
-            onClick={[Function]}
+        <div
+          className="BaseIssueListMenu-filter-5"
+        >
+          <div
+            className="BaseIssueListMenu-filterItem-6"
           >
             <h6
-              className="MuiTypography-root-128 MuiTypography-h6-145 MuiTypography-colorInherit-157"
+              className="MuiTypography-root-47 MuiTypography-h6-64 MuiTypography-colorInherit-76"
             >
-              #
-              12
-               
-              title
-               
-              create_at
+              State
             </h6>
-          </a>
+          </div>
+          <div
+            className="BaseIssueListMenu-filterItem-6"
+          >
+            <div
+              className="MuiInputBase-root-102 MuiInput-root-89 MuiInput-underline-93"
+              onClick={[Function]}
+            >
+              <div
+                className="MuiSelect-root-82"
+              >
+                <div
+                  aria-haspopup="true"
+                  aria-pressed="false"
+                  className="MuiSelect-select-83 MuiSelect-selectMenu-86 MuiInputBase-input-112 MuiInput-input-97"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex={0}
+                >
+                  All
+                </div>
+                <input
+                  id="state"
+                  name="state"
+                  type="hidden"
+                  value="all"
+                />
+                <svg
+                  aria-hidden="true"
+                  className="MuiSvgIcon-root-119 MuiSelect-icon-88"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7 10l5 5 5-5z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
-        <div />
       </div>
-    </div>
+    </header>
   </div>
   <div
-    className="BaseIssueList-submitButtonWrap-2"
+    className="MuiGrid-container-132"
   >
-    <button
-      className="MuiButtonBase-root-189 MuiButton-root-163 MuiButton-contained-174 MuiButton-containedPrimary-175 MuiButton-raised-177 MuiButton-raisedPrimary-178"
-      disabled={false}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex="0"
-      type="submit"
+    <div
+      className="MuiGrid-item-133 MuiGrid-grid-xs-12-172 BaseIssueList-gridItem-1"
     >
-      <span
-        className="MuiButton-label-164"
+      <div>
+        <div
+          className="MuiPaper-root-16 MuiPaper-elevation2-20 MuiPaper-rounded-17 BaseIssueListItem-paper-229"
+        >
+          <div>
+            <a
+              href="/issue?owner=owner&repo=repo&number=12"
+              onClick={[Function]}
+            >
+              <h6
+                className="MuiTypography-root-47 MuiTypography-h6-64 MuiTypography-colorInherit-76"
+              >
+                #
+                12
+                 
+                title
+                 
+                create_at
+              </h6>
+            </a>
+          </div>
+          <div />
+        </div>
+      </div>
+    </div>
+    <div
+      className="BaseIssueList-submitButtonWrap-2"
+    >
+      <button
+        className="MuiButtonBase-root-256 MuiButton-root-230 MuiButton-contained-241 MuiButton-containedPrimary-242 MuiButton-raised-244 MuiButton-raisedPrimary-245"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="submit"
       >
-        Load more
-      </span>
-      <span
-        className="MuiTouchRipple-root-192"
-      />
-    </button>
+        <span
+          className="MuiButton-label-231"
+        >
+          Load more
+        </span>
+        <span
+          className="MuiTouchRipple-root-259"
+        />
+      </button>
+    </div>
   </div>
 </div>
 `;

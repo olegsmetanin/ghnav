@@ -1,3 +1,4 @@
+import { IHistory, history } from 'common/history'
 import { WithStyles, createStyles, withStyles } from '@material-ui/core/styles'
 
 import { IssueListConnected } from 'modules/issue/containers/IssueListConnected'
@@ -9,16 +10,22 @@ import { load } from 'modules/issue/redux/listActions'
 import { merge } from 'lodash'
 import { qs2json } from 'common/utils/qs2json'
 
-const styles = () => createStyles({})
+const styles = theme =>
+  createStyles({
+    root: {
+      marginTop: theme.spacing.unit * 14
+    }
+  })
 
 export interface IIndex {
   owner: string
   repo: string
+  history: IHistory
 }
 
 class Index extends React.Component<IIndex & WithStyles<typeof styles>, {}> {
   static async getInitialProps({ ctx }) {
-    const { store } = ctx
+    const { store, isServer } = ctx
 
     const query = merge(
       {
@@ -33,24 +40,29 @@ class Index extends React.Component<IIndex & WithStyles<typeof styles>, {}> {
       qs2json(ctx.asPath)
     )
 
-    store.dispatch(load(query))
+    if (isServer || !history.isComeBack) {
+      store.dispatch(load(query))
+    }
+
     return query
   }
 
   render() {
-    const { owner, repo } = this.props
+    const { classes, owner, repo } = this.props
 
     return (
-      <Layout title={`Github ${owner}/${repo} issues`}>
-        <React.Fragment>
-          <MainMenu>
-            <Typography variant="h5" color="inherit" noWrap>
-              Github {owner}/{repo} issues
-            </Typography>
-          </MainMenu>
-          <IssueListConnected />
-        </React.Fragment>
-      </Layout>
+      <div className={classes.root}>
+        <Layout title={`Github ${owner}/${repo} issues`}>
+          <React.Fragment>
+            <MainMenu>
+              <Typography variant="h5" color="inherit" noWrap>
+                Github {owner}/{repo} issues
+              </Typography>
+            </MainMenu>
+            <IssueListConnected />
+          </React.Fragment>
+        </Layout>
+      </div>
     )
   }
 }

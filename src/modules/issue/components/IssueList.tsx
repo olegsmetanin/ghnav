@@ -7,7 +7,10 @@ import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import { IProcessState } from 'interfaces/redux'
 import { IssueListItem } from 'modules/issue/components/IssueListItem'
+import { IssueListMenu } from 'modules/issue/components/IssueListMenu'
+import LinearProgress from '@material-ui/core/LinearProgress'
 import { Loader } from 'common/components/Loader'
+import { json2router } from 'common/utils/json2router'
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -17,6 +20,14 @@ const styles = (theme: Theme) =>
     submitButtonWrap: {
       margin: 'auto',
       marginBottom: theme.spacing.unit * 2
+    },
+    progress: {
+      top: 0,
+      left: 0,
+      right: 0,
+      width: '100%',
+      position: 'fixed',
+      zIndex: 9999
     }
   })
 
@@ -26,6 +37,7 @@ export interface IBaseIssueListProps {
   items?: IIssue[]
 
   onLoad: (query) => void
+  onRouteChange: (route: object) => void
 }
 
 export class BaseIssueList extends React.Component<IBaseIssueListProps & WithStyles<typeof styles>, {}> {
@@ -35,34 +47,61 @@ export class BaseIssueList extends React.Component<IBaseIssueListProps & WithSty
     this.props.onLoad(newQuery)
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.query && this.props.query.filter.state !== prevProps.query.filter.state) {
+      window.scrollTo(0, 0)
+    }
+  }
+
+  handleOnFilterChange = filter => {
+    const { query: currentQuery } = this.props
+    const query = json2router({
+      owner: currentQuery.owner,
+      repo: currentQuery.repo,
+      filter
+    })
+    this.props.onRouteChange({
+      pathname: '/',
+      query
+    })
+  }
+
   render() {
     const { classes, items, process, query } = this.props
 
     return (
-      <Grid container>
-        {items &&
-          items.map(value => {
-            return (
-              <Grid item key={value.id} xs={12} className={classes.gridItem}>
-                <IssueListItem value={value} owner={query.owner} repo={query.repo} />
-              </Grid>
-            )
-          })}
-        {items && (
-          <div key="button" className={classes.submitButtonWrap}>
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              onClick={this.handleOnLoadMore}
-              disabled={process && process.isLoading}
-            >
-              {process && process.isLoading ? 'Loading...' : 'Load more'}
-            </Button>
+      <div>
+        {query && query.filter && <IssueListMenu value={query.filter} onChange={this.handleOnFilterChange} />}
+        {process.isLoading && items && (
+          <div className={classes.progress}>
+            <LinearProgress />
           </div>
         )}
-        {!items && <Loader />}
-      </Grid>
+        <Grid container>
+          {items &&
+            items.map(value => {
+              return (
+                <Grid item key={value.id} xs={12} className={classes.gridItem}>
+                  <IssueListItem value={value} owner={query.owner} repo={query.repo} />
+                </Grid>
+              )
+            })}
+          {items && (
+            <div key="button" className={classes.submitButtonWrap}>
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                onClick={this.handleOnLoadMore}
+                disabled={process && process.isLoading}
+              >
+                {process && process.isLoading ? 'Loading...' : 'Load more'}
+              </Button>
+            </div>
+          )}
+          {!items && <Loader />}
+        </Grid>
+      </div>
     )
   }
 }
