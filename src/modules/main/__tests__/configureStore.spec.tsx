@@ -39,7 +39,8 @@ describe('configureStore', () => {
 
     expect(store.getState()).toEqual({
       issue: { query: { number: '5638', owner: 'zeit', repo: 'next.js' }, value: { qwe: 123 } },
-      issueList: { error: false, process: {} }
+      issueList: { error: false, process: {} },
+      repoList: { error: false, process: {} }
     })
   })
 
@@ -67,7 +68,8 @@ describe('configureStore', () => {
 
     expect(store.getState()).toEqual({
       issue: { error: 'Bad Request', value: null },
-      issueList: { error: false, process: {} }
+      issueList: { error: false, process: {} },
+      repoList: { error: false, process: {} }
     })
   })
 

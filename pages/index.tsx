@@ -5,10 +5,13 @@ import { IssueListConnected } from 'modules/issue/containers/IssueListConnected'
 import { Layout } from 'common/layout/Layout'
 import { MainMenu } from 'common/layout/MainMenu'
 import React from 'react'
+import { RepoSelectConnected } from 'modules/repo/containers/RepoSelectConnected'
 import Typography from '@material-ui/core/Typography'
+import { json2router } from 'common/utils/json2router'
 import { load } from 'modules/issue/redux/listActions'
 import { merge } from 'lodash'
 import { qs2json } from 'common/utils/qs2json'
+import { withRouter } from 'next/router'
 
 const styles = theme =>
   createStyles({
@@ -47,6 +50,30 @@ class Index extends React.Component<IIndex & WithStyles<typeof styles>, {}> {
     return query
   }
 
+  handleOnRepoChange = (repoFullName: string) => {
+    const [owner, repo] = repoFullName.split('/')
+    this.props.router.push({
+      pathname: '/',
+      query: {
+        owner,
+        repo
+      }
+    })
+  }
+
+  handleOnIssueFilterChange = filter => {
+    const { owner, repo } = this.props
+    const query = json2router({
+      owner,
+      repo,
+      filter
+    })
+    this.props.router.push({
+      pathname: '/',
+      query
+    })
+  }
+
   render() {
     const { classes, owner, repo } = this.props
 
@@ -56,10 +83,11 @@ class Index extends React.Component<IIndex & WithStyles<typeof styles>, {}> {
           <React.Fragment>
             <MainMenu>
               <Typography variant="h5" color="inherit" noWrap>
-                Github {owner}/{repo} issues
+                Github issues
               </Typography>
+              <RepoSelectConnected value={`${owner}/${repo}`} onChange={this.handleOnRepoChange} />
             </MainMenu>
-            <IssueListConnected />
+            <IssueListConnected onFilterChange={this.handleOnIssueFilterChange} />
           </React.Fragment>
         </Layout>
       </div>
@@ -67,4 +95,4 @@ class Index extends React.Component<IIndex & WithStyles<typeof styles>, {}> {
   }
 }
 
-export default withStyles(styles)(Index)
+export default withRouter(withStyles(styles)(Index))

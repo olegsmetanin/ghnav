@@ -36,7 +36,7 @@ describe('IssueList', () => {
     onLoad: () => {
       return
     },
-    onRouteChange: () => {
+    onFilterChange: () => {
       return
     }
   }
@@ -87,5 +87,44 @@ describe('IssueList', () => {
     await tree.setProps(nextProps)
 
     expect(scrollTo).toBeCalledWith(0, 0)
+  })
+
+  it('calls onFilterChange', async () => {
+    const props = cloneDeep(stubProps)
+
+    let filter
+
+    props.onFilterChange = jest.fn(x => (filter = x))
+
+    const tree = mount(<IssueList {...props} />)
+
+    const menu = tree.find('[role="button"]').first()
+    expect(menu.exists()).toBe(true)
+    menu.simulate('click')
+
+    const menuItem = tree.find('MenuItem').at(2)
+    expect(menuItem.exists()).toBe(true)
+    menuItem.simulate('click')
+
+    expect(props.onFilterChange).toBeCalledWith({ state: 'closed' })
+    expect(filter).toEqual({ state: 'closed' })
+  })
+
+  it('calls onFilterChange', async () => {
+    const props = cloneDeep(stubProps)
+
+    delete props.onFilterChange
+
+    const tree = mount(<IssueList {...props} />)
+
+    const menu = tree.find('[role="button"]').first()
+    expect(menu.exists()).toBe(true)
+    menu.simulate('click')
+
+    const menuItem = tree.find('MenuItem').at(2)
+    expect(menuItem.exists()).toBe(true)
+    menuItem.simulate('click')
+
+    // expect(props.onFilterChange).toBeCalledTimes(0)
   })
 })

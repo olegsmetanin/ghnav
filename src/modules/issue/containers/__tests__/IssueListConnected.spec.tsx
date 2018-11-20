@@ -36,12 +36,10 @@ describe('IssueListConnected', () => {
 
     const store = configureMockStore()(initialState)
 
-    const router = {
-      push: jest.fn()
-    }
+    const onFilterChange = jest.fn()
     const tree = mount(
       <Provider store={store}>
-        <IssueListConnected router={router} />
+        <IssueListConnected onFilterChange={onFilterChange} />
       </Provider>
     )
 
@@ -55,9 +53,6 @@ describe('IssueListConnected', () => {
 
     await new Promise(resolve => setImmediate(resolve))
 
-    expect(router.push).toBeCalledWith({
-      pathname: '/',
-      query: { 'filter.state': 'closed', owner: 'owner', repo: 'repo' }
-    })
+    expect(onFilterChange).toBeCalledWith({ state: 'closed' })
   })
 })

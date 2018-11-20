@@ -27,7 +27,7 @@ const styles = (theme: Theme) =>
       right: 0,
       width: '100%',
       position: 'fixed',
-      zIndex: 9999
+      zIndex: 1600
     }
   })
 
@@ -37,7 +37,7 @@ export interface IBaseIssueListProps {
   items?: IIssue[]
 
   onLoad: (query) => void
-  onRouteChange: (route: object) => void
+  onFilterChange: (filter) => void
 }
 
 export class BaseIssueList extends React.Component<IBaseIssueListProps & WithStyles<typeof styles>, {}> {
@@ -54,16 +54,9 @@ export class BaseIssueList extends React.Component<IBaseIssueListProps & WithSty
   }
 
   handleOnFilterChange = filter => {
-    const { query: currentQuery } = this.props
-    const query = json2router({
-      owner: currentQuery.owner,
-      repo: currentQuery.repo,
-      filter
-    })
-    this.props.onRouteChange({
-      pathname: '/',
-      query
-    })
+    if (this.props.onFilterChange) {
+      this.props.onFilterChange(filter)
+    }
   }
 
   render() {

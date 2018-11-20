@@ -1,4 +1,4 @@
-export function json2router(target, opts) {
+export function json2router(target, opts?) {
   opts = opts || {}
 
   const delimiter = opts.delimiter || '.'
