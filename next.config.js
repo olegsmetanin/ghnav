@@ -2,6 +2,7 @@ const withTypescript  = require('@zeit/next-typescript');
 
 // https://github.com/zeit/next.js/issues/4636
 module.exports = withTypescript({
+    assetPrefix: process.env.NODE_ENV === 'production' ? '/ghnav' : '',
     webpack: function(config, {dev}) {
         if(!dev) {
             const originalEntry = config.entry;

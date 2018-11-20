@@ -1,4 +1,14 @@
 {
+  "name": "ghnav",
+  "version": "0.0.1",
+  "author": "Oleg Smetanin <oleg@smetan.in>",
+  "description": "GitHub Issue Navigator example app. Next.js, React, Material-UI, Typescript.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/olegsmetanin/ghnav.git"
+  },
+  "homepage": "https://olegsmetanin.github.io/ghnav",
+  "license": "MIT",
   "scripts": {
     "build": "next build && tsc --project tsconfig.server.json",
     "dev": "nodemon server/index.ts",
@@ -9,7 +19,8 @@
     "test:watch": "jest --watch",
     "ts:check": "tsc --noEmit",
     "prettier": "prettier --write \"src/**/*.{js,ts,tsx,json,md}\" \"pages/**/*.{js,ts,tsx,json,md}\"",
-    "export": "next export"
+    "export": "next export && touch ./out/.nojekyll",
+    "deploy": "gh-pages -d out"
   },
   "dependencies": {
     "@material-ui/core": "^3.5.1",
@@ -54,6 +65,7 @@
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "fetch-mock": "^7.2.5",
+    "gh-pages": "^2.0.1",
     "jest": "^23.6.0",
     "nodemon": "^1.18.4",
     "prettier": "^1.15.2",
