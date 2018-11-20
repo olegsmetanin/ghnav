@@ -1,5 +1,5 @@
 /* eslint-env jest */
-import Index from '../index'
+import Index from '../pages/index'
 import { Provider } from 'react-redux'
 import React from 'react'
 import configureMockStore from 'redux-mock-store'

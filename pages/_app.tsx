@@ -7,7 +7,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles'
 import { Provider } from 'react-redux'
 import React from 'react'
 import { configureStore } from 'modules/main/configureStore'
-import getPageContext from './_getPageContext'
+import getPageContext from 'common/theme/getPageContext'
 import withRedux from 'next-redux-wrapper'
 import withReduxSaga from 'next-redux-saga'
 

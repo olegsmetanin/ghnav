@@ -1,5 +1,5 @@
 /* eslint-env jest */
-import Issue from '../issue'
+import Issue from '../pages/issue'
 import { Provider } from 'react-redux'
 import React from 'react'
 import { all } from 'redux-saga/effects'

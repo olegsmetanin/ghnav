@@ -9,12 +9,12 @@ module.exports = withTypescript({
             config.entry = async() => {
                 const entries = await originalEntry();
 
-                if(entries['main.js'] && !entries['main.js'].includes('./src/common/polyfills.js')) {
+               if(entries['main.js'] && !entries['main.js'].includes('./src/common/polyfills.js')) {
                     entries['main.js'].unshift('./src/common/polyfills.js');
                 }
 
                 return entries;
-            };
+            }
         }
 
         return config;
