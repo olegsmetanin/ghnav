@@ -1,11 +1,9 @@
 import * as React from 'react'
 
-// import { IHistory } from 'common/history'
 import { Index } from '../pages/index'
 /* eslint-env jest */
 import IndexPage from '../pages/index'
 import { Provider } from 'react-redux'
-// import Router from 'next/router'
 import configureMockStore from 'redux-mock-store'
 import createSagaMiddleware from 'redux-saga'
 import  { historyStab } from 'common/history/__tests__/history.stab'
@@ -13,16 +11,10 @@ import { mount } from 'enzyme'
 import renderer from 'react-test-renderer'
 import { routerStab } from 'common/router/__tests__/router.stab'
 
-// import { RouterProps, SingletonRouter } from 'next/router'
-
-
 const sagaMiddleware = createSagaMiddleware()
 const mockStore = configureMockStore([sagaMiddleware])
 
 describe('Index', () => {
-
-
-
 
   it('renders correct', () => {
     const initialState = {
@@ -135,8 +127,6 @@ describe('Index', () => {
         route: '/',
       })
     }
-
-    // const router =
 
     const store = configureMockStore()(initialState)
     const tree = mount(
