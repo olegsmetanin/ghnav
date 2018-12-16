@@ -24370,19 +24370,19 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/next/node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
-/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/CssBaseline */ "./node_modules/@material-ui/core/CssBaseline/index.js");
-/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/head */ "./node_modules/next/head.js");
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_jss_lib_JssProvider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-jss/lib/JssProvider */ "./node_modules/react-jss/lib/JssProvider.js");
-/* harmony import */ var react_jss_lib_JssProvider__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jss_lib_JssProvider__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/styles/index.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/CssBaseline */ "./node_modules/@material-ui/core/CssBaseline/index.js");
+/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/head */ "./node_modules/next/head.js");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_jss_lib_JssProvider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-jss/lib/JssProvider */ "./node_modules/react-jss/lib/JssProvider.js");
+/* harmony import */ var react_jss_lib_JssProvider__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jss_lib_JssProvider__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/styles/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _src_modules_main_configureStore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../src/modules/main/configureStore */ "./src/modules/main/configureStore.ts");
 /* harmony import */ var _src_common_theme_getPageContext__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../src/common/theme/getPageContext */ "./src/common/theme/getPageContext.ts");
 /* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! next-redux-wrapper */ "./node_modules/next-redux-wrapper/lib/index.js");
@@ -24509,22 +24509,22 @@ function (_App) {
           Component = _this$props.Component,
           pageProps = _this$props.pageProps,
           store = _this$props.store;
-      return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_1__["Container"], null, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_3___default.a, null, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("title", null, "My page")), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_jss_lib_JssProvider__WEBPACK_IMPORTED_MODULE_4___default.a, {
+      return react__WEBPACK_IMPORTED_MODULE_1__["createElement"](next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], null, react__WEBPACK_IMPORTED_MODULE_1__["createElement"](next_head__WEBPACK_IMPORTED_MODULE_4___default.a, null, react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("title", null, "My page")), react__WEBPACK_IMPORTED_MODULE_1__["createElement"](react_jss_lib_JssProvider__WEBPACK_IMPORTED_MODULE_5___default.a, {
         registry: this.pageContext.sheetsRegistry,
         generateClassName: this.pageContext.generateClassName
-      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["MuiThemeProvider"], {
+      }, react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["MuiThemeProvider"], {
         theme: this.pageContext.theme,
         sheetsManager: this.pageContext.sheetsManager
-      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_2___default.a, null), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_6__["Provider"], {
+      }, react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_3___default.a, null), react__WEBPACK_IMPORTED_MODULE_1__["createElement"](react_redux__WEBPACK_IMPORTED_MODULE_7__["Provider"], {
         store: store
-      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(Component, _extends({
+      }, react__WEBPACK_IMPORTED_MODULE_1__["createElement"](Component, _extends({
         pageContext: this.pageContext
       }, pageProps))))));
     }
   }]);
 
   return MyApp;
-}(next_app__WEBPACK_IMPORTED_MODULE_1___default.a);
+}(next_app__WEBPACK_IMPORTED_MODULE_2___default.a);
 
 /* harmony default export */ __webpack_exports__["default"] = (next_redux_wrapper__WEBPACK_IMPORTED_MODULE_10___default()(_src_modules_main_configureStore__WEBPACK_IMPORTED_MODULE_8__["configureStore"])(Object(next_redux_saga__WEBPACK_IMPORTED_MODULE_11__["default"])({
   async: true
@@ -24548,6 +24548,63 @@ function (_App) {
     })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/_app")
   
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ "./node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ }),
+
+/***/ "./src/common/errors/index.ts":
+/*!************************************!*\
+  !*** ./src/common/errors/index.ts ***!
+  \************************************/
+/*! exports provided: RepoNotDefinedError */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RepoNotDefinedError", function() { return RepoNotDefinedError; });
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
+
+function isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _construct(Parent, args, Class) { if (isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
+
+function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+/*
+ * How to define errors in typescript
+ * https://github.com/Microsoft/TypeScript/wiki/Breaking-Changes#extending-built-ins-like-error-array-and-map-may-no-longer-work
+ */
+var RepoNotDefinedError =
+/*#__PURE__*/
+function (_Error) {
+  _inherits(RepoNotDefinedError, _Error);
+
+  function RepoNotDefinedError(message) {
+    var _this;
+
+    _classCallCheck(this, RepoNotDefinedError);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(RepoNotDefinedError).call(this, message));
+    Object.setPrototypeOf(_assertThisInitialized(_assertThisInitialized(_this)), (this instanceof RepoNotDefinedError ? this.constructor : void 0).prototype);
+    _this.name = RepoNotDefinedError.name;
+    return _this;
+  }
+
+  return RepoNotDefinedError;
+}(_wrapNativeSuper(Error));
 
 /***/ }),
 
@@ -24613,7 +24670,8 @@ var createListActions = function createListActions(entityName) {
   var actionTypes = {
     FAILURE: "".concat(entityName, "_LIST/FAILURE"),
     LOAD: "".concat(entityName, "_LIST/LOAD"),
-    LOAD_SUCCESS: "".concat(entityName, "_LIST/LOAD_SUCCESS")
+    LOAD_SUCCESS: "".concat(entityName, "_LIST/LOAD_SUCCESS"),
+    LOADING: "".concat(entityName, "_LIST/LOADING")
   };
 
   function failure(error) {
@@ -24783,7 +24841,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var initialState = {
-  error: false
+  error: null,
+  process: {
+    isLoading: true
+  }
 };
 var itemReducer = Object(_common_redux_handleActions__WEBPACK_IMPORTED_MODULE_1__["handleActions"])((_handleActions = {}, _defineProperty(_handleActions, _itemActions__WEBPACK_IMPORTED_MODULE_0__["actionTypes"].FAILURE, function (state, action) {
   return _objectSpread({}, state, {
@@ -24887,7 +24948,7 @@ function loadSaga(action) {
           _context.prev = 15;
           _context.t0 = _context["catch"](0);
           _context.next = 19;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_3__["put"])(Object(_itemActions__WEBPACK_IMPORTED_MODULE_2__["failure"])(_context.t0.message));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_3__["put"])(Object(_itemActions__WEBPACK_IMPORTED_MODULE_2__["failure"])(_context.t0));
 
         case 19:
         case "end":
@@ -24948,24 +25009,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var initialState = {
-  error: false,
-  process: {}
+  error: null,
+  process: {
+    isLoading: true
+  }
 };
-var listReducer = Object(_common_redux_handleActions__WEBPACK_IMPORTED_MODULE_1__["handleActions"])((_handleActions = {}, _defineProperty(_handleActions, _listActions__WEBPACK_IMPORTED_MODULE_0__["actionTypes"].LOAD, function (state) {
+var listReducer = Object(_common_redux_handleActions__WEBPACK_IMPORTED_MODULE_1__["handleActions"])((_handleActions = {}, _defineProperty(_handleActions, _listActions__WEBPACK_IMPORTED_MODULE_0__["actionTypes"].LOAD, function (state, action) {
   return _objectSpread({}, state, {
-    process: {
-      isLoading: true
-    }
+    process: _defineProperty({}, action.payload.add ? 'isLoadingMore' : 'isLoading', true)
   });
 }), _defineProperty(_handleActions, _listActions__WEBPACK_IMPORTED_MODULE_0__["actionTypes"].LOAD_SUCCESS, function (state, action) {
   return _objectSpread({}, state, {
     value: action.payload.query.add ? state.value.concat(action.payload.value) : action.payload.value,
     query: action.payload.query,
-    process: {}
+    process: {},
+    error: null
   });
 }), _defineProperty(_handleActions, _listActions__WEBPACK_IMPORTED_MODULE_0__["actionTypes"].FAILURE, function (state, action) {
   return _objectSpread({}, state, {
-    error: action.error
+    error: action.error,
+    process: {}
   });
 }), _handleActions), initialState);
 
@@ -24988,6 +25051,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _listActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./listActions */ "./src/modules/issue/redux/listActions.ts");
 /* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-saga/effects */ "./node_modules/redux-saga/es/effects.js");
+/* harmony import */ var _common_errors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../common/errors */ "./src/common/errors/index.ts");
 
 
 var _marked =
@@ -24995,6 +25059,7 @@ var _marked =
 _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(loadSaga);
 
 /* global fetch */
+
 
 
 
@@ -25006,57 +25071,66 @@ function loadSaga(action) {
         case 0:
           _context.prev = 0;
           query = action.payload;
+
+          if (!(!query.owner || !query.repo)) {
+            _context.next = 4;
+            break;
+          }
+
+          throw new _common_errors__WEBPACK_IMPORTED_MODULE_4__["RepoNotDefinedError"]('Owner/Repo is not defined');
+
+        case 4:
           url = "https://api.github.com/repos/".concat(query.owner, "/").concat(query.repo, "/issues?state=").concat(query.filter.state, "&page=").concat(query.page, "&per_page=").concat(query.per_page);
-          _context.next = 5;
+          _context.next = 7;
           return fetch(url);
 
-        case 5:
+        case 7:
           response = _context.sent;
 
           if (!(response.status < 200 || response.status > 300)) {
-            _context.next = 8;
+            _context.next = 10;
             break;
           }
 
           throw new Error(response.statusText);
 
-        case 8:
-          _context.next = 10;
+        case 10:
+          _context.next = 12;
           return response.json();
 
-        case 10:
+        case 12:
           value = _context.sent;
 
           if (value.map) {
-            _context.next = 13;
+            _context.next = 15;
             break;
           }
 
           throw new Error('data is not an array');
 
-        case 13:
-          _context.next = 15;
+        case 15:
+          _context.next = 17;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_3__["put"])(Object(_listActions__WEBPACK_IMPORTED_MODULE_2__["loadSuccess"])({
             query: query,
             value: value
           }));
 
-        case 15:
-          _context.next = 21;
+        case 17:
+          _context.next = 23;
           break;
 
-        case 17:
-          _context.prev = 17;
+        case 19:
+          _context.prev = 19;
           _context.t0 = _context["catch"](0);
-          _context.next = 21;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_3__["put"])(Object(_listActions__WEBPACK_IMPORTED_MODULE_2__["failure"])(_context.t0.message));
+          _context.next = 23;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_3__["put"])(Object(_listActions__WEBPACK_IMPORTED_MODULE_2__["failure"])(_context.t0));
 
-        case 21:
+        case 23:
         case "end":
           return _context.stop();
       }
     }
-  }, _marked, this, [[0, 17]]);
+  }, _marked, this, [[0, 19]]);
 }
 var listSagas = [Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_3__["takeLatest"])(_listActions__WEBPACK_IMPORTED_MODULE_2__["actionTypes"].LOAD, loadSaga)];
 
