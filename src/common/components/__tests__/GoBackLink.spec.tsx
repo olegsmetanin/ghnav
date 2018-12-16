@@ -22,21 +22,6 @@ jest.mock('next/link', () => {
 
 describe('GoBackLink', () => {
   it('renders', async () => {
-    // const props = {
-    //   history: historyStab({
-    //     back: jest.fn(),
-    //     matchPreviousPathname: () => true
-    //   })
-    // }
-
-    // const props = {
-    //   history: historyStab({
-    //     back: jest.fn(),
-    //     matchPreviousPathname: () => true
-    //   })
-    // }
-
-    // historyDefaultStab
 
     const HistoryMock = jest.fn<IHistory>(() => ({
       ...historyDefaultStab,

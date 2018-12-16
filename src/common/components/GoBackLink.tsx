@@ -16,7 +16,6 @@ export class BaseGoBackLink extends React.Component<IBaseGoBackLinkProps, {}> {
 
   render() {
     const { children, history: hs, ...props } = this.props
-    // const {  } = this.props
     const { href } = props
 
     const match = hs.matchPreviousPathname(href)
