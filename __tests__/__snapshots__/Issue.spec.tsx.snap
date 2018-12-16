@@ -55,7 +55,7 @@ Array [
           onClick={[Function]}
         >
           <a
-            className="IssuePage-backLink-1"
+            className="Issue-backLink-1"
           >
             <button
               className="MuiButtonBase-root-58 MuiIconButton-root-52 MuiIconButton-colorInherit-53"
@@ -101,12 +101,354 @@ Array [
         <h5
           className="MuiTypography-root-70 MuiTypography-h5-86 MuiTypography-colorInherit-99 MuiTypography-noWrap-96"
         >
-          Github 
-          zeit
-          /
-          next.js
-           #
-          5638
+          Github
+           
+          zeit/next.js #5638
+        </h5>
+        <div
+          className="PrimarySearchAppBar-grow-3"
+        />
+        <div
+          className="PrimarySearchAppBar-sectionDesktop-10"
+        >
+          <button
+            className="MuiButtonBase-root-58 MuiIconButton-root-52 MuiIconButton-colorInherit-53"
+            disabled={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="MuiIconButton-label-57"
+            >
+              <span
+                className="MuiBadge-root-105"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="MuiSvgIcon-root-61"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                  />
+                </svg>
+                <span
+                  className="MuiBadge-badge-106 MuiBadge-colorSecondary-108"
+                >
+                  4
+                </span>
+              </span>
+            </span>
+            <span
+              className="MuiTouchRipple-root-128"
+            />
+          </button>
+          <button
+            className="MuiButtonBase-root-58 MuiIconButton-root-52 MuiIconButton-colorInherit-53"
+            disabled={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="MuiIconButton-label-57"
+            >
+              <span
+                className="MuiBadge-root-105"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="MuiSvgIcon-root-61"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"
+                  />
+                </svg>
+                <span
+                  className="MuiBadge-badge-106 MuiBadge-colorSecondary-108"
+                >
+                  17
+                </span>
+              </span>
+            </span>
+            <span
+              className="MuiTouchRipple-root-128"
+            />
+          </button>
+          <button
+            aria-haspopup="true"
+            aria-owns={null}
+            className="MuiButtonBase-root-58 MuiIconButton-root-52 MuiIconButton-colorInherit-53"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="MuiIconButton-label-57"
+            >
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root-61"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+                />
+                <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+              </svg>
+            </span>
+            <span
+              className="MuiTouchRipple-root-128"
+            />
+          </button>
+        </div>
+        <div
+          className="PrimarySearchAppBar-sectionMobile-11"
+        >
+          <button
+            aria-haspopup="true"
+            className="MuiButtonBase-root-58 MuiIconButton-root-52 MuiIconButton-colorInherit-53"
+            data-test-id="mobile-menu-icon"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="MuiIconButton-label-57"
+            >
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root-61"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+                <path
+                  d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                />
+              </svg>
+            </span>
+            <span
+              className="MuiTouchRipple-root-128"
+            />
+          </button>
+        </div>
+      </div>
+    </header>
+  </div>,
+  <div
+    className="BaseIssueOverview-root-115"
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "marginTop": 100,
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "margin": "auto",
+          }
+        }
+      >
+        <div
+          className="MuiCircularProgress-root-118 MuiCircularProgress-colorPrimary-121 MuiCircularProgress-indeterminate-120"
+          role="progressbar"
+          style={
+            Object {
+              "height": 40,
+              "width": 40,
+            }
+          }
+        >
+          <svg
+            className="MuiCircularProgress-svg-123"
+            viewBox="22 22 44 44"
+          >
+            <circle
+              className="MuiCircularProgress-circle-124 MuiCircularProgress-circleIndeterminate-126"
+              cx={44}
+              cy={44}
+              fill="none"
+              r={20.2}
+              strokeWidth={3.6}
+              style={Object {}}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Issue renders correct without required parameters 1`] = `
+Array [
+  <div
+    className="PrimarySearchAppBar-root-2"
+  >
+    <header
+      className="MuiPaper-root-21 MuiPaper-elevation4-27 MuiAppBar-root-12 MuiAppBar-positionFixed-13 MuiAppBar-colorPrimary-19 mui-fixed"
+    >
+      <div
+        className="MuiToolbar-root-48 MuiToolbar-dense-51 MuiToolbar-gutters-49"
+      >
+        <button
+          aria-label="Open drawer"
+          className="MuiButtonBase-root-58 MuiIconButton-root-52 MuiIconButton-colorInherit-53 PrimarySearchAppBar-menuButton-4"
+          disabled={false}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex="0"
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label-57"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root-61"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M0 0h24v24H0z"
+                fill="none"
+              />
+              <path
+                d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+              />
+            </svg>
+          </span>
+          <span
+            className="MuiTouchRipple-root-128"
+          />
+        </button>
+        <span
+          onClick={[Function]}
+        >
+          <a
+            className="Issue-backLink-1"
+          >
+            <button
+              className="MuiButtonBase-root-58 MuiIconButton-root-52 MuiIconButton-colorInherit-53"
+              disabled={false}
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex="0"
+              type="button"
+            >
+              <span
+                className="MuiIconButton-label-57"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="MuiSvgIcon-root-61"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                  />
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              <span
+                className="MuiTouchRipple-root-128"
+              />
+            </button>
+          </a>
+        </span>
+        <h5
+          className="MuiTypography-root-70 MuiTypography-h5-86 MuiTypography-colorInherit-99 MuiTypography-noWrap-96"
+        >
+          Github
+           
+          issue
         </h5>
         <div
           className="PrimarySearchAppBar-grow-3"

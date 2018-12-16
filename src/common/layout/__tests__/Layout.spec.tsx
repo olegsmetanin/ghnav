@@ -1,6 +1,7 @@
+import * as React from 'react'
+
 /* eslint-env jest */
 import { Layout } from '../Layout'
-import React from 'react'
 import renderer from 'react-test-renderer'
 
 jest.mock('next/head', () => props => <div>{props.children}</div>)

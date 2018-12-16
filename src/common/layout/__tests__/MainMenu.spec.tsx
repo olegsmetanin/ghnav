@@ -1,6 +1,7 @@
+import * as React from 'react'
+
 /* eslint-env jest */
 import { MainMenu } from '../MainMenu'
-import React from 'react'
 import { mount } from 'enzyme'
 import renderer from 'react-test-renderer'
 
@@ -13,7 +14,9 @@ describe('MainMenu', () => {
     const profile = tree.find('[data-test-id="menu-profile-item"]').first()
     expect(profile.exists()).toBe(true)
     profile.simulate('click')
-    const subprofile = tree.find('[data-test-id="menu-profile-profile-item"]').first()
+    const subprofile = tree
+      .find('[data-test-id="menu-profile-profile-item"]')
+      .first()
     expect(subprofile.exists()).toBe(true)
     subprofile.simulate('click')
   })

@@ -1,7 +1,8 @@
 /* eslint-env jest */
-import { Loader } from '../Loader'
+import * as React from 'react'
+
 /* eslint-env jest */
-import React from 'react'
+import { Loader } from '../Loader'
 import { mount } from 'enzyme'
 
 describe('Loader', () => {

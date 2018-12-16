@@ -4,6 +4,6 @@ export interface IRepo {
   repo: string
 }
 
-export interface IRepoSelectQuery {
+export interface IRepoListQuery {
   search: string
 }

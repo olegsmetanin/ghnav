@@ -38,8 +38,11 @@ describe('configureStore', () => {
     await new Promise(resolve => setImmediate(resolve))
 
     expect(store.getState()).toEqual({
-      issue: { query: { number: '5638', owner: 'zeit', repo: 'next.js' }, value: { qwe: 123 } },
-      issueList: { error: false, process: {} },
+      issue: {
+        query: { number: '5638', owner: 'zeit', repo: 'next.js' },
+        value: { qwe: 123 }
+      },
+      issueList: { error: null, process: { isLoading: true } },
       repoList: { error: false, process: {} }
     })
   })
@@ -67,8 +70,8 @@ describe('configureStore', () => {
     await new Promise(resolve => setImmediate(resolve))
 
     expect(store.getState()).toEqual({
-      issue: { error: 'Bad Request', value: null },
-      issueList: { error: false, process: {} },
+      issue: { error: new Error('Bad Request'), value: null },
+      issueList: { error: null, process: { isLoading: true } },
       repoList: { error: false, process: {} }
     })
   })

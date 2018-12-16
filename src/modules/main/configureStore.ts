@@ -17,7 +17,11 @@ const bindMiddleware = middleware => {
 }
 
 export function configureStore(initialState?: object) {
-  const store = createStore(rootReducer, initialState, bindMiddleware([sagaMiddleware]))
+  const store = createStore(
+    rootReducer,
+    initialState,
+    bindMiddleware([sagaMiddleware])
+  )
 
   const runSagaTaskKey = 'runSagaTask'
   const sagaTask = 'sagaTask'

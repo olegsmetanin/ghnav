@@ -1,17 +1,14 @@
 import * as React from 'react'
 
-import { IIssue, IIssueFilter, IIssueListQuery } from 'interfaces/issue'
-import { Theme, WithStyles, createStyles, withStyles } from '@material-ui/core/styles'
+import {
+  Theme,
+  WithStyles,
+  createStyles,
+  withStyles
+} from '@material-ui/core/styles'
 
-import AddIcon from '@material-ui/icons/Add'
 import AppBar from '@material-ui/core/AppBar'
-import Button from '@material-ui/core/Button'
-import FormControl from '@material-ui/core/FormControl'
-import Grid from '@material-ui/core/Grid'
-import { IProcessState } from 'interfaces/redux'
-import InputLabel from '@material-ui/core/InputLabel'
-import { IssueListItem } from 'modules/issue/components/IssueListItem'
-import { Loader } from 'common/components/Loader'
+import { IIssueListFilter } from 'interfaces/issue'
 import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -19,6 +16,7 @@ import Typography from '@material-ui/core/Typography'
 
 const styles = (theme: Theme) =>
   createStyles({
+    root: {},
     appBar: {
       marginTop: 48
     },
@@ -30,12 +28,15 @@ const styles = (theme: Theme) =>
     }
   })
 
-export interface IBaseIssueListMenuProps {
-  value: IIssueFilter
-  onChange: (value: IIssueFilter) => void
+export interface IBaseIssueListMenuProps extends WithStyles<typeof styles> {
+  value: IIssueListFilter
+  onChange: (value: IIssueListFilter) => void
 }
 
-export class BaseIssueListMenu extends React.Component<IBaseIssueListMenuProps & WithStyles<typeof styles>, {}> {
+export class BaseIssueListMenu extends React.Component<
+  IBaseIssueListMenuProps,
+  {}
+> {
   handleOnStateChange = event => {
     const newState = { state: event.target.value }
     this.props.onChange(newState)

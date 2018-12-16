@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import App, { Container } from 'next/app'
 
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -5,7 +7,6 @@ import Head from 'next/head'
 import JssProvider from 'react-jss/lib/JssProvider'
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import { Provider } from 'react-redux'
-import React from 'react'
 import { configureStore } from 'modules/main/configureStore'
 import getPageContext from 'common/theme/getPageContext'
 import withRedux from 'next-redux-wrapper'
@@ -50,10 +51,16 @@ class MyApp extends App<IApp> {
           <title>My page</title>
         </Head>
         {/* Wrap every page in Jss and Theme providers */}
-        <JssProvider registry={this.pageContext.sheetsRegistry} generateClassName={this.pageContext.generateClassName}>
+        <JssProvider
+          registry={this.pageContext.sheetsRegistry}
+          generateClassName={this.pageContext.generateClassName}
+        >
           {/* MuiThemeProvider makes the theme available down the React
               tree thanks to React context. */}
-          <MuiThemeProvider theme={this.pageContext.theme} sheetsManager={this.pageContext.sheetsManager}>
+          <MuiThemeProvider
+            theme={this.pageContext.theme}
+            sheetsManager={this.pageContext.sheetsManager}
+          >
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
             {/* Pass pageContext to the _document though the renderPage enhancer

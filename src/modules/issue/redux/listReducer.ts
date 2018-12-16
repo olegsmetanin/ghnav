@@ -6,24 +6,26 @@ import { handleActions } from 'common/redux/handleActions'
 
 export interface IState {
   value?: IIssue[]
-  error?: any
+  error?: Error
   query?: IIssueListQuery
   process?: IProcessState
 }
 
 export const initialState = {
-  error: false,
-  process: {}
+  error: null,
+  process: {
+    isLoading: true
+  }
 }
 
 export const listReducer = handleActions<IState>(
   {
-    [actionTypes.LOAD]: state => {
+    [actionTypes.LOAD]: (state, action) => {
       return {
         ...state,
         ...{
           process: {
-            isLoading: true
+            [action.payload.add ? 'isLoadingMore' : 'isLoading']: true
           }
         }
       }
@@ -32,9 +34,12 @@ export const listReducer = handleActions<IState>(
       return {
         ...state,
         ...{
-          value: action.payload.query.add ? state.value.concat(action.payload.value) : action.payload.value,
+          value: action.payload.query.add
+            ? state.value.concat(action.payload.value)
+            : action.payload.value,
           query: action.payload.query,
-          process: {}
+          process: {},
+          error: null
         }
       }
     },
@@ -42,7 +47,8 @@ export const listReducer = handleActions<IState>(
       return {
         ...state,
         ...{
-          error: action.error
+          error: action.error,
+          process: {}
         }
       }
     }

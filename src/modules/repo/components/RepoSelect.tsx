@@ -1,14 +1,15 @@
 import * as React from 'react'
 
-import { IRepo, IRepoSelectQuery } from 'interfaces/repo'
-import { Theme, WithStyles, createStyles, withStyles } from '@material-ui/core/styles'
+import { IRepo, IRepoListQuery } from 'interfaces/repo'
+import {
+  Theme,
+  WithStyles,
+  createStyles,
+  withStyles
+} from '@material-ui/core/styles'
 
-import Button from '@material-ui/core/Button'
 import Downshift from 'downshift'
-import Grid from '@material-ui/core/Grid'
 import { IProcessState } from 'interfaces/redux'
-import LinearProgress from '@material-ui/core/LinearProgress'
-import { Loader } from 'common/components/Loader'
 import MenuItem from '@material-ui/core/MenuItem'
 import Paper from '@material-ui/core/Paper'
 import Popper from '@material-ui/core/Popper'
@@ -16,10 +17,10 @@ import SearchIcon from '@material-ui/icons/Search'
 import TextField from '@material-ui/core/TextField'
 import { debounce } from 'lodash'
 import { fade } from '@material-ui/core/styles/colorManipulator'
-import { json2router } from 'common/utils/json2router'
 
 const styles = (theme: Theme) =>
   createStyles({
+    container: {},
     search: {
       position: 'relative',
       borderRadius: theme.shape.borderRadius,
@@ -69,40 +70,58 @@ const styles = (theme: Theme) =>
     }
   })
 
-export interface IBaseRepoSelectProps {
+export interface IBaseRepoSelectProps extends WithStyles<typeof styles> {
   value: string
   process?: IProcessState
-  query?: IRepoSelectQuery
+  query?: IRepoListQuery
   items?: IRepo[]
 
-  onLoad: (query) => void
-  onChange: (value: string) => void
+  onChange?: (value: string) => void
+  onInputChange: (value: string) => void
   debounceTimeout: number
 }
 
-export class BaseRepoSelect extends React.Component<IBaseRepoSelectProps & WithStyles<typeof styles>, {}> {
+export interface IBaseRepoSelectState {
+  value: string
+}
+
+export class BaseRepoSelect extends React.Component<
+  IBaseRepoSelectProps,
+  IBaseRepoSelectState
+> {
   static defaultProps = {
     debounceTimeout: 500
   }
 
+  state = {
+    value: this.props.value
+  }
+
   popperNode
 
-  handleOnLoad = debounce(search => {
-    if (search.length > 2) {
-      this.props.onLoad({ search })
-    }
+  handleOnInputDebouncedChange = debounce(value => {
+    this.props.onInputChange(value)
   }, this.props.debounceTimeout)
 
+  handleOnInputChange = value => {
+    this.setState({ value })
+    this.handleOnInputDebouncedChange(value)
+  }
+
+  handleOnChange = value => {
+    this.setState({ value })
+    this.props.onChange(value)
+  }
+
   /*
-   * Use onStateChange because
-   * onInputValueChange fires before onStateChange (!)
-   * and it gives us one unnecessary search request
+   * Restore value onBlur
    */
   handleOnStateChange = (changes: any) => {
-    if (changes.hasOwnProperty('selectedItem')) {
-      this.props.onChange(changes.selectedItem)
-    } else if (changes.hasOwnProperty('inputValue')) {
-      this.handleOnLoad(changes.inputValue)
+    if (
+      changes.type === Downshift.stateChangeTypes.blurInput ||
+      changes.type === Downshift.stateChangeTypes.mouseUp
+    ) {
+      this.setState({ value: this.props.value })
     }
   }
 
@@ -125,7 +144,13 @@ export class BaseRepoSelect extends React.Component<IBaseRepoSelectProps & WithS
     )
   }
 
-  renderSuggestion = ({ suggestion, index, itemProps, highlightedIndex, selectedItem }) => {
+  renderSuggestion = ({
+    suggestion,
+    index,
+    itemProps,
+    highlightedIndex,
+    selectedItem
+  }) => {
     const isHighlighted = highlightedIndex === index
     const isSelected = (selectedItem || '').indexOf(suggestion) > -1
 
@@ -144,9 +169,14 @@ export class BaseRepoSelect extends React.Component<IBaseRepoSelectProps & WithS
     )
   }
 
-  render() {
-    const { classes, items, process, query } = this.props
+  componentDidUpdate(prevProps) {
+    if (prevProps.value !== this.props.value) {
+      this.setState({ value: this.props.value })
+    }
+  }
 
+  render() {
+    const { classes, items } = this.props
     return (
       <div className={classes.search}>
         <div className={classes.searchIcon}>
@@ -155,10 +185,19 @@ export class BaseRepoSelect extends React.Component<IBaseRepoSelectProps & WithS
 
         <Downshift
           id="downshift-popper"
-          initialSelectedItem={this.props.value}
+          inputValue={this.state.value}
           onStateChange={this.handleOnStateChange}
+          onInputValueChange={this.handleOnInputChange}
+          onSelect={this.handleOnChange}
         >
-          {({ getInputProps, getItemProps, getMenuProps, highlightedIndex, inputValue, isOpen, selectedItem }) => (
+          {({
+            getInputProps,
+            getItemProps,
+            getMenuProps,
+            highlightedIndex,
+            isOpen,
+            selectedItem
+          }) => (
             <div className={classes.container}>
               {this.renderInput({
                 fullWidth: true,
@@ -170,9 +209,25 @@ export class BaseRepoSelect extends React.Component<IBaseRepoSelectProps & WithS
                   this.popperNode = node
                 }
               })}
-              <Popper open={isOpen} anchorEl={this.popperNode} className={classes.popover}>
-                <div {...(isOpen ? getMenuProps({}, { suppressRefError: true }) : {})}>
-                  <Paper square style={{ marginTop: 8, width: this.popperNode ? this.popperNode.clientWidth : null }}>
+              <Popper
+                open={isOpen}
+                anchorEl={this.popperNode}
+                className={classes.popover}
+              >
+                <div
+                  {...(isOpen
+                    ? getMenuProps({}, { suppressRefError: true })
+                    : {})}
+                >
+                  <Paper
+                    square
+                    style={{
+                      marginTop: 8,
+                      width: this.popperNode
+                        ? this.popperNode.clientWidth
+                        : null
+                    }}
+                  >
                     <div className={classes.popoverInternal}>
                       {items &&
                         items.map((item, index) => {

@@ -1,17 +1,18 @@
-import { IHistory, history } from 'common/history'
+import * as React from 'react'
+
+import { IWithHistoryProps, withHistory } from 'common/history/withHistory'
+import { WithRouterProps, withRouter } from 'next/router'
 import { WithStyles, createStyles, withStyles } from '@material-ui/core/styles'
 
+import { IIssueListQuery } from 'interfaces/issue'
 import { IssueListConnected } from 'modules/issue/containers/IssueListConnected'
 import { Layout } from 'common/layout/Layout'
 import { MainMenu } from 'common/layout/MainMenu'
-import React from 'react'
 import { RepoSelectConnected } from 'modules/repo/containers/RepoSelectConnected'
 import Typography from '@material-ui/core/Typography'
-import { json2router } from 'common/utils/json2router'
 import { load } from 'modules/issue/redux/listActions'
 import { merge } from 'lodash'
 import { qs2json } from 'common/utils/qs2json'
-import { withRouter } from 'next/router'
 
 const styles = theme =>
   createStyles({
@@ -20,74 +21,107 @@ const styles = theme =>
     }
   })
 
-export interface IIndex {
-  owner: string
-  repo: string
-  history: IHistory
-}
+export interface IIndexProps
+  extends Partial<IIssueListQuery>,
+    WithStyles<typeof styles>,
+    IWithHistoryProps,
+    WithRouterProps {}
 
-class Index extends React.Component<IIndex & WithStyles<typeof styles>, {}> {
+export class BaseIndex extends React.Component<IIndexProps, {}> {
+  static defaultProps = {
+    filter: {
+      state: 'all'
+    }
+  }
+
   static async getInitialProps({ ctx }) {
     const { store, isServer } = ctx
 
-    const query = merge(
-      {
-        page: 1,
-        per_page: 10,
-        owner: 'zeit',
-        repo: 'next.js',
-        filter: {
-          state: 'all'
-        }
-      },
-      qs2json(ctx.asPath)
-    )
+    const qs = ctx.asPath
 
-    if (isServer || !history.isComeBack) {
-      store.dispatch(load(query))
+    const query = merge({}, BaseIndex.defaultProps, qs2json(qs))
+
+    if (isServer) {
+      if (query.owner && query.repo) {
+        store.dispatch(load(query))
+      }
     }
 
+    return query as IIndexProps
+  }
+
+  route2query = () => {
+    const qs = this.props.router.asPath
+    const query = {
+      ...BaseIndex.defaultProps,
+      ...qs2json(qs)
+    }
     return query
   }
 
   handleOnRepoChange = (repoFullName: string) => {
     const [owner, repo] = repoFullName.split('/')
-    this.props.router.push({
-      pathname: '/',
-      query: {
-        owner,
-        repo
+
+    const query = {
+      ...this.route2query(),
+      owner,
+      repo
+    }
+
+    this.props.history.push(
+      {
+        pathname: '/',
+        query
+      },
+      {
+        shallow: true
       }
-    })
+    )
   }
 
   handleOnIssueFilterChange = filter => {
-    const { owner, repo } = this.props
-    const query = json2router({
-      owner,
-      repo,
+    const query = {
+      ...this.route2query(),
       filter
-    })
-    this.props.router.push({
-      pathname: '/',
-      query
-    })
+    }
+
+    this.props.history.push(
+      {
+        pathname: '/',
+        query
+      },
+      {
+        shallow: true
+      }
+    )
   }
 
   render() {
-    const { classes, owner, repo } = this.props
+    const { classes } = this.props
 
+    const query = this.route2query()
+    const { owner, repo, filter } = query
+
+    const repoFullName = owner && repo ? owner + '/' + repo : ''
     return (
       <div className={classes.root}>
-        <Layout title={`Github ${owner}/${repo} issues`}>
+        <Layout
+          title={`Github ${repoFullName ? repoFullName + ' ' : ''}issues`}
+        >
           <React.Fragment>
             <MainMenu>
               <Typography variant="h5" color="inherit" noWrap>
                 Github issues
               </Typography>
-              <RepoSelectConnected value={`${owner}/${repo}`} onChange={this.handleOnRepoChange} />
+              <RepoSelectConnected
+                value={repoFullName}
+                onChange={this.handleOnRepoChange}
+              />
             </MainMenu>
-            <IssueListConnected onFilterChange={this.handleOnIssueFilterChange} />
+            <IssueListConnected
+              {...{ owner, repo, filter }}
+              onFilterChange={this.handleOnIssueFilterChange}
+            />
           </React.Fragment>
         </Layout>
       </div>
@@ -95,4 +129,8 @@ class Index extends React.Component<IIndex & WithStyles<typeof styles>, {}> {
   }
 }
 
-export default withRouter(withStyles(styles)(Index))
+export const Index = withStyles(styles)(BaseIndex)
+
+export const IndexPage = withHistory(withRouter(Index))
+
+export default IndexPage

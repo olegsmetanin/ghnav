@@ -1,12 +1,19 @@
 import * as React from 'react'
 
-import { Theme, WithStyles, createStyles, withStyles } from '@material-ui/core/styles'
+import {
+  Theme,
+  WithStyles,
+  createStyles,
+  withStyles
+} from '@material-ui/core/styles'
 
 import Grid from '@material-ui/core/Grid'
+import { IIssueQuery } from 'interfaces/issue'
 import { Loader } from 'common/components/Loader'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import marked from 'marked'
+import moment from 'moment'
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -29,22 +36,47 @@ const styles = (theme: Theme) =>
     }
   })
 
-export interface IBaseIssueOverviewProps {
+export interface IBaseIssueOverviewProps extends WithStyles<typeof styles> {
   value: any
   query: any
   owner: string
   repo: string
   number: string
+  onLoad: (query: IIssueQuery) => void
 }
 
-export class BaseIssueOverview extends React.Component<IBaseIssueOverviewProps & WithStyles<typeof styles>, {}> {
+export class BaseIssueOverview extends React.Component<
+  IBaseIssueOverviewProps,
+  {}
+> {
+  isQueryMatch = () => {
+    const { query, owner, repo, number: num } = this.props
+    return (
+      query &&
+      query.owner === owner &&
+      query.repo === repo &&
+      query.number === num
+    )
+  }
+
+  componentDidMount() {
+    if (!this.isQueryMatch()) {
+      const { owner, repo, number: num } = this.props
+      this.props.onLoad({
+        owner,
+        repo,
+        number: num
+      })
+    }
+  }
+
   render() {
-    const { classes, value, query, owner, repo, number: num } = this.props
-    const isDirty = !(value && query && query.owner === owner && query.repo === repo && query.number === num)
+    const { classes, value } = this.props
+    const isQueryMatch = this.isQueryMatch()
 
     return (
       <div className={classes.root}>
-        {!isDirty && (
+        {isQueryMatch && (
           <Paper className={classes.paper}>
             <Grid container spacing={16}>
               <Grid item key="title">
@@ -54,7 +86,7 @@ export class BaseIssueOverview extends React.Component<IBaseIssueOverviewProps &
               </Grid>
               <Grid item key="created_at">
                 <Typography variant="h6" color="inherit">
-                  {value.created_at}
+                  {moment(value.created_at).fromNow()}
                 </Typography>
               </Grid>
               <Grid item key="body" className={classes.content}>
@@ -67,7 +99,7 @@ export class BaseIssueOverview extends React.Component<IBaseIssueOverviewProps &
             </Grid>
           </Paper>
         )}
-        {isDirty && <Loader />}
+        {!isQueryMatch && <Loader />}
       </div>
     )
   }

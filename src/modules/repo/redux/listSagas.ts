@@ -8,7 +8,9 @@ import { put, takeLatest } from 'redux-saga/effects'
 export function* loadSaga(action) {
   try {
     const query = action.payload
-    const url = `https://api.github.com/search/repositories?q=${query.search}&sort=stars&order=desc`
+    const url = `https://api.github.com/search/repositories?q=${
+      query.search
+    }&sort=stars&order=desc`
     const response = yield fetch(url)
     if (response.status < 200 || response.status > 300) {
       throw new Error(response.statusText)

@@ -1,6 +1,7 @@
+import * as React from 'react'
+
 /* eslint-env jest */
 import { IssueListMenu } from '../IssueListMenu'
-import React from 'react'
 import { mount } from 'enzyme'
 
 describe('IssueListMenu', () => {

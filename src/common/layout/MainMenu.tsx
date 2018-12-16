@@ -1,6 +1,11 @@
 import * as React from 'react'
 
-import { Theme, WithStyles, createStyles, withStyles } from '@material-ui/core/styles'
+import {
+  Theme,
+  WithStyles,
+  createStyles,
+  withStyles
+} from '@material-ui/core/styles'
 
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import AppBar from '@material-ui/core/AppBar'
@@ -90,7 +95,10 @@ export interface IPrimarySearchAppBarProps {
   classes: any
 }
 
-export class PrimarySearchAppBar extends React.Component<IPrimarySearchAppBarProps & WithStyles<typeof styles>, {}> {
+export class PrimarySearchAppBar extends React.Component<
+  IPrimarySearchAppBarProps & WithStyles<typeof styles>,
+  {}
+> {
   state = {
     anchorEl: null,
     mobileMoreAnchorEl: null
@@ -127,7 +135,10 @@ export class PrimarySearchAppBar extends React.Component<IPrimarySearchAppBarPro
         open={isMenuOpen}
         onClose={this.handleMenuClose}
       >
-        <MenuItem data-test-id="menu-profile-profile-item" onClick={this.handleMenuClose}>
+        <MenuItem
+          data-test-id="menu-profile-profile-item"
+          onClick={this.handleMenuClose}
+        >
           Profile
         </MenuItem>
         <MenuItem onClick={this.handleMenuClose}>My account</MenuItem>
@@ -144,7 +155,11 @@ export class PrimarySearchAppBar extends React.Component<IPrimarySearchAppBarPro
       >
         <MenuItem>
           <IconButton color="inherit">
-            <Badge className={classes.margin} badgeContent={4} color="secondary">
+            <Badge
+              className={classes.margin}
+              badgeContent={4}
+              color="secondary"
+            >
               <MailIcon />
             </Badge>
           </IconButton>
@@ -152,13 +167,20 @@ export class PrimarySearchAppBar extends React.Component<IPrimarySearchAppBarPro
         </MenuItem>
         <MenuItem>
           <IconButton color="inherit">
-            <Badge className={classes.margin} badgeContent={11} color="secondary">
+            <Badge
+              className={classes.margin}
+              badgeContent={11}
+              color="secondary"
+            >
               <NotificationsIcon />
             </Badge>
           </IconButton>
           <p>Notifications</p>
         </MenuItem>
-        <MenuItem data-test-id="menu-profile-item" onClick={this.handleProfileMenuOpen}>
+        <MenuItem
+          data-test-id="menu-profile-item"
+          onClick={this.handleProfileMenuOpen}
+        >
           <IconButton color="inherit">
             <AccountCircle />
           </IconButton>
@@ -171,19 +193,31 @@ export class PrimarySearchAppBar extends React.Component<IPrimarySearchAppBarPro
       <div className={classes.root}>
         <AppBar position="fixed">
           <Toolbar variant="dense">
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
+            <IconButton
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="Open drawer"
+            >
               <MenuIcon />
             </IconButton>
             {children}
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
               <IconButton color="inherit">
-                <Badge className={classes.margin} badgeContent={4} color="secondary">
+                <Badge
+                  className={classes.margin}
+                  badgeContent={4}
+                  color="secondary"
+                >
                   <MailIcon />
                 </Badge>
               </IconButton>
               <IconButton color="inherit">
-                <Badge className={classes.margin} badgeContent={17} color="secondary">
+                <Badge
+                  className={classes.margin}
+                  badgeContent={17}
+                  color="secondary"
+                >
                   <NotificationsIcon />
                 </Badge>
               </IconButton>

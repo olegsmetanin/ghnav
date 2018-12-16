@@ -21,17 +21,20 @@ describe('Repo list sagas', () => {
   })
 
   it('should work with load action', async () => {
-    fetchMock.get('https://api.github.com/search/repositories?q=zeit&sort=stars&order=desc', {
-      status: 200,
-      body: {
-        items: [
-          {
-            id: 1,
-            full_name: 'zeit/asd'
-          }
-        ]
+    fetchMock.get(
+      'https://api.github.com/search/repositories?q=zeit&sort=stars&order=desc',
+      {
+        status: 200,
+        body: {
+          items: [
+            {
+              id: 1,
+              full_name: 'zeit/asd'
+            }
+          ]
+        }
       }
-    })
+    )
 
     store.dispatch(
       load({
@@ -44,17 +47,23 @@ describe('Repo list sagas', () => {
     expect(store.getActions()).toEqual([
       { payload: { search: 'zeit' }, type: 'REPO_LIST/LOAD' },
       {
-        payload: { query: { search: 'zeit' }, value: [{ id: 1, owner: 'zeit', repo: 'asd' }] },
+        payload: {
+          query: { search: 'zeit' },
+          value: [{ id: 1, owner: 'zeit', repo: 'asd' }]
+        },
         type: 'REPO_LIST/LOAD_SUCCESS'
       }
     ])
   })
 
   it('should work with failed action', async () => {
-    fetchMock.get('https://api.github.com/search/repositories?q=zeit&sort=stars&order=desc', {
-      status: 400,
-      body: { error: 'Bad request' }
-    })
+    fetchMock.get(
+      'https://api.github.com/search/repositories?q=zeit&sort=stars&order=desc',
+      {
+        status: 400,
+        body: { error: 'Bad request' }
+      }
+    )
 
     store.dispatch(
       load({
@@ -71,10 +80,13 @@ describe('Repo list sagas', () => {
   })
 
   it('should work with bad response', async () => {
-    fetchMock.get('https://api.github.com/search/repositories?q=zeit&sort=stars&order=desc', {
-      status: 200,
-      body: {}
-    })
+    fetchMock.get(
+      'https://api.github.com/search/repositories?q=zeit&sort=stars&order=desc',
+      {
+        status: 200,
+        body: {}
+      }
+    )
 
     store.dispatch(
       load({

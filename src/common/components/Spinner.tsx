@@ -1,0 +1,20 @@
+import * as React from 'react'
+
+import CircularProgress from '@material-ui/core/CircularProgress'
+
+export const Spinner = props => {
+  const { className, style } = props
+  const baseStyle = {
+    marginTop: 100,
+    width: '100%',
+    display: 'flex'
+  }
+
+  return (
+    <div style={{ ...baseStyle, ...style }} className={className}>
+      <div style={{ margin: 'auto' }}>
+        <CircularProgress />
+      </div>
+    </div>
+  )
+}

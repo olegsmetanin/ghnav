@@ -1,6 +1,10 @@
 import { failure, load, loadSuccess } from '../itemActions'
 /* eslint-env jest */
-import { issueErrorSelector, issueQuerySelector, issueValueSelector } from '../itemSelectors'
+import {
+  issueErrorSelector,
+  issueQuerySelector,
+  issueValueSelector
+} from '../itemSelectors'
 
 import { itemReducer } from '../itemReducer'
 
@@ -16,7 +20,11 @@ describe('Issue reducers', () => {
       return itemReducer(a, b)
     }, state.issue)
 
-    expect(state.issue).toEqual({ value: { asd: 123 }, query: { qwe: 123 }, error: { error: 'error' } })
+    expect(state.issue).toEqual({
+      value: { asd: 123 },
+      query: { qwe: 123 },
+      error: { error: 'error' }
+    })
 
     expect(issueValueSelector(state)).toEqual({ asd: 123 })
     expect(issueQuerySelector(state)).toEqual({ qwe: 123 })

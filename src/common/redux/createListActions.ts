@@ -2,7 +2,8 @@ export const createListActions = (entityName: string) => {
   const actionTypes = {
     FAILURE: `${entityName}_LIST/FAILURE`,
     LOAD: `${entityName}_LIST/LOAD`,
-    LOAD_SUCCESS: `${entityName}_LIST/LOAD_SUCCESS`
+    LOAD_SUCCESS: `${entityName}_LIST/LOAD_SUCCESS`,
+    LOADING: `${entityName}_LIST/LOADING`
   }
 
   function failure(error) {

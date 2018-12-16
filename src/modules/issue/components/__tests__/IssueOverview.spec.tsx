@@ -1,6 +1,7 @@
+import * as React from 'react'
+
 /* eslint-env jest */
 import { IssueOverview } from '../IssueOverview'
-import React from 'react'
 import renderer from 'react-test-renderer'
 
 describe('IssueOverview', () => {
@@ -19,6 +20,9 @@ describe('IssueOverview', () => {
         owner: 'owner',
         repo: 'repo',
         number: 'number'
+      },
+      onLoad: () => {
+        return
       }
     }
     const component = renderer.create(<IssueOverview {...props} />)

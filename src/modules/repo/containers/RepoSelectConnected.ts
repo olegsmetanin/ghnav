@@ -1,4 +1,8 @@
-import { repoListProcessSelector, repoListQuerySelector, repoListValueSelector } from 'modules/repo/redux/listSelectors'
+import {
+  repoListProcessSelector,
+  repoListQuerySelector,
+  repoListValueSelector
+} from 'modules/repo/redux/listSelectors'
 
 import { RepoSelect } from 'modules/repo/components/RepoSelect'
 import { connect } from 'react-redux'
@@ -11,7 +15,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onLoad: query => dispatch(load(query))
+  onInputChange: value => {
+    dispatch(load({ search: value }))
+  }
 })
 
 export const RepoSelectConnected = connect(

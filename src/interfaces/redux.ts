@@ -2,15 +2,20 @@
 export interface IFSA<P, M> {
   type: string
   payload?: P
-  error?: boolean
+  error: IError
   meta: M
 }
 
 export interface IProcessState {
   isLoading?: boolean
 
+  isLoadingMore?: boolean
+
   isSaving?: boolean
 
   isDeleting?: boolean
-  error?: string
+}
+
+export interface IError {
+  [zone: string]: Error[]
 }

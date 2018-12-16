@@ -5,7 +5,7 @@ export function json2router(target, opts?) {
   const maxDepth = opts.maxDepth
   const output = {}
 
-  function step(object, prev, currentDepth) {
+  function step(object, prev?, currentDepth?) {
     currentDepth = currentDepth || 1
     Object.keys(object).forEach(key => {
       const value = object[key]
@@ -15,7 +15,12 @@ export function json2router(target, opts?) {
 
       const newKey = prev ? prev + delimiter + key : key
 
-      if (!isArray && isObject && Object.keys(value).length && (!opts.maxDepth || currentDepth < maxDepth)) {
+      if (
+        !isArray &&
+        isObject &&
+        Object.keys(value).length &&
+        (!opts.maxDepth || currentDepth < maxDepth)
+      ) {
         return step(value, newKey, currentDepth + 1)
       }
 

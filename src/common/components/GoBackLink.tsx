@@ -1,13 +1,11 @@
-import { IHistory, history } from 'common/history'
+import * as React from 'react'
 
-import Link from 'next/link'
-import React from 'react'
-import { withProps } from 'common/hoc/withProps'
+import { IWithHistoryProps, withHistory } from 'common/history/withHistory'
 
-interface IBaseGoBackLinkProps {
-  href: any
-  history?: IHistory
-}
+import { Link } from 'common/components/Link'
+import { LinkProps } from 'next/link'
+
+export interface IBaseGoBackLinkProps extends IWithHistoryProps, LinkProps {}
 
 export class BaseGoBackLink extends React.Component<IBaseGoBackLinkProps, {}> {
   onClick = e => {
@@ -17,16 +15,19 @@ export class BaseGoBackLink extends React.Component<IBaseGoBackLinkProps, {}> {
   }
 
   render() {
-    const { children, history: hist, ...props } = this.props
+    const { children, history: hs, ...props } = this.props
+    // const {  } = this.props
     const { href } = props
 
-    const match = hist.matchPreviousPathname(href)
+    const match = hs.matchPreviousPathname(href)
 
     return (
       // Do not pass router and history in Link
-      <Link {...props}>{match ? <span onClick={this.onClick}>{children}</span> : children}</Link>
+      <Link {...props}>
+        {match ? <span onClick={this.onClick}>{children}</span> : children}
+      </Link>
     )
   }
 }
 
-export const GoBackLink = withProps(() => ({ history }))(BaseGoBackLink)
+export const GoBackLink = withHistory(BaseGoBackLink)

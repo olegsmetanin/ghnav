@@ -37,15 +37,24 @@ describe('Issue sagas', () => {
     await new Promise(resolve => setImmediate(resolve))
 
     expect(store.getActions()).toEqual([
-      { payload: { number: '123', owner: 'zeit', repo: 'next.js' }, type: 'ISSUE/LOAD' },
-      { payload: { query: { number: '123', owner: 'zeit', repo: 'next.js' }, value: [] }, type: 'ISSUE/LOAD_SUCCESS' }
+      {
+        payload: { number: '123', owner: 'zeit', repo: 'next.js' },
+        type: 'ISSUE/LOAD'
+      },
+      {
+        payload: {
+          query: { number: '123', owner: 'zeit', repo: 'next.js' },
+          value: []
+        },
+        type: 'ISSUE/LOAD_SUCCESS'
+      }
     ])
   })
 
   it('should work with failed action', async () => {
     fetchMock.get('https://api.github.com/repos/zeit/next.js/issues/123', {
       status: 400,
-      body: { error: 'Bad request' }
+      body: { error: new Error('Bad request') }
     })
 
     store.dispatch(
@@ -59,8 +68,11 @@ describe('Issue sagas', () => {
     await new Promise(resolve => setImmediate(resolve))
 
     expect(store.getActions()).toEqual([
-      { payload: { number: '123', owner: 'zeit', repo: 'next.js' }, type: 'ISSUE/LOAD' },
-      { error: 'Bad Request', type: 'ISSUE/FAILURE' }
+      {
+        payload: { number: '123', owner: 'zeit', repo: 'next.js' },
+        type: 'ISSUE/LOAD'
+      },
+      { error: new Error('Bad Request'), type: 'ISSUE/FAILURE' }
     ])
   })
 
@@ -81,8 +93,11 @@ describe('Issue sagas', () => {
     await new Promise(resolve => setImmediate(resolve))
 
     expect(store.getActions()).toEqual([
-      { payload: { number: '123', owner: 'zeit', repo: 'next.js' }, type: 'ISSUE/LOAD' },
-      { error: 'Bad Request', type: 'ISSUE/FAILURE' }
+      {
+        payload: { number: '123', owner: 'zeit', repo: 'next.js' },
+        type: 'ISSUE/LOAD'
+      },
+      { error: new Error('Bad Request'), type: 'ISSUE/FAILURE' }
     ])
   })
 })

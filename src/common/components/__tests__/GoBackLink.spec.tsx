@@ -1,10 +1,15 @@
 /* eslint-env jest */
-import { BaseGoBackLink, GoBackLink } from '../GoBackLink'
+import * as React from 'react'
+
+import {
+  historyDefaultStab,
+  historyStab
+} from 'common/history/__tests__/history.stab'
 
 /* eslint-env jest */
-import React from 'react'
+import { BaseGoBackLink } from '../GoBackLink'
+import { IHistory } from 'common/history'
 import { mount } from 'enzyme'
-import renderer from 'react-test-renderer'
 
 // https://github.com/zeit/next.js/issues/1827
 // You can't click on next/link because
@@ -17,27 +22,48 @@ jest.mock('next/link', () => {
 
 describe('GoBackLink', () => {
   it('renders', async () => {
-    const history = {
+    // const props = {
+    //   history: historyStab({
+    //     back: jest.fn(),
+    //     matchPreviousPathname: () => true
+    //   })
+    // }
+
+    // const props = {
+    //   history: historyStab({
+    //     back: jest.fn(),
+    //     matchPreviousPathname: () => true
+    //   })
+    // }
+
+    // historyDefaultStab
+
+    const HistoryMock = jest.fn<IHistory>(() => ({
+      ...historyDefaultStab,
       back: jest.fn(),
       matchPreviousPathname: () => true
+    }))
+
+    const props = {
+      history: new HistoryMock()
     }
 
     const tree = mount(
-      <BaseGoBackLink href="/qwe" history={history}>
+      <BaseGoBackLink href="/qwe" {...props}>
         <a>Hello</a>
       </BaseGoBackLink>
     )
 
     tree.simulate('click')
 
-    expect(history.back.mock.calls.length).toBe(1)
+    expect(props.history.back).toHaveBeenCalledTimes(1)
   })
 
   it('not allow clicks if no valid router', async () => {
-    const history = {
+    const history = historyStab({
       back: jest.fn(),
       matchPreviousPathname: () => false
-    }
+    })
 
     const tree = mount(
       <BaseGoBackLink href="/qwe" history={history}>
@@ -47,6 +73,6 @@ describe('GoBackLink', () => {
 
     tree.simulate('click')
 
-    expect(history.back.mock.calls.length).toBe(0)
+    expect(history.back).toHaveBeenCalledTimes(0)
   })
 })

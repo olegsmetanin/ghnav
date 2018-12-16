@@ -1,6 +1,11 @@
 import * as React from 'react'
 
-import { Theme, WithStyles, createStyles, withStyles } from '@material-ui/core/styles'
+import {
+  Theme,
+  WithStyles,
+  createStyles,
+  withStyles
+} from '@material-ui/core/styles'
 
 import Head from 'next/head'
 
@@ -30,11 +35,9 @@ export interface ILayoutProps {
   title?: string
 }
 
-export const BaseLayout: React.SFC<ILayoutProps & WithStyles<typeof styles>> = ({
-  children,
-  classes,
-  title = 'This is the default title'
-}) => {
+export const BaseLayout: React.SFC<
+  ILayoutProps & WithStyles<typeof styles>
+> = ({ children, classes, title = 'This is the default title' }) => {
   return (
     <div className={classes.root}>
       <Head>

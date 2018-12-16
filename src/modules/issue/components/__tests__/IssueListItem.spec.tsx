@@ -1,17 +1,23 @@
+import * as React from 'react'
+
 /* eslint-env jest */
 import { IssueListItem } from '../IssueListItem'
-import React from 'react'
 import renderer from 'react-test-renderer'
 
 describe('IssueListItem', () => {
   it('renders correct', async () => {
     const props = {
+      owner: 'owner',
+      repo: 'repo',
       value: {
+        id: 'id',
         title: 'title',
-        owner: 'owner',
-        repo: 'repo',
         number: '123',
-        create_at: '2018-11-17'
+        created_at: '2018-11-17',
+        user: {
+          login: 'login'
+        },
+        body: 'body'
       }
     }
     const component = renderer.create(<IssueListItem {...props} />)

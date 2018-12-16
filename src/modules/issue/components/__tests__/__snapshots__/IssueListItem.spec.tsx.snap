@@ -7,18 +7,23 @@ exports[`IssueListItem renders correct 1`] = `
   >
     <div>
       <a
-        href="/issue?owner=&repo=&number=123"
+        href="/issue?owner=owner&repo=repo&number=123"
         onClick={[Function]}
       >
         <h6
           className="MuiTypography-root-29 MuiTypography-h6-46 MuiTypography-colorInherit-58"
         >
+          title
+        </h6>
+        <h6
+          className="MuiTypography-root-29 MuiTypography-subtitle1-47 MuiTypography-colorInherit-58"
+        >
           #
           123
-           
-          title
-           
-          2018-11-17
+           opened 
+          a month ago
+           by 
+          login
         </h6>
       </a>
     </div>

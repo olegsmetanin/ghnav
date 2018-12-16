@@ -1,3 +1,6 @@
+import * as React from 'react'
+
+import { WithRouterProps, withRouter } from 'next/router'
 import { WithStyles, createStyles, withStyles } from '@material-ui/core/styles'
 
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
@@ -5,7 +8,6 @@ import { GoBackLink } from 'common/components/GoBackLink'
 import IconButton from '@material-ui/core/IconButton'
 import { IssueOverviewConnected } from 'modules/issue/containers/IssueOverviewConnected'
 import { MainMenu } from 'common/layout/MainMenu'
-import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import { load } from 'modules/issue/redux/itemActions'
 import { qs2json } from 'common/utils/qs2json'
@@ -23,16 +25,28 @@ export interface IIssuePage {
   number: string
 }
 
-class IssuePage extends React.Component<IIssuePage & WithStyles<typeof styles>, {}> {
+class Issue extends React.Component<
+  IIssuePage & WithStyles<typeof styles> & WithRouterProps,
+  {}
+> {
   static async getInitialProps({ ctx }) {
-    const { store } = ctx
-    const query = qs2json(ctx.asPath)
-    store.dispatch(load(query))
+    const { store, isServer } = ctx
+
+    const qs = ctx.asPath
+    const query = qs2json(qs)
+
+    if (isServer) {
+      if (query.owner && query.repo && query.number) {
+        store.dispatch(load(query))
+      }
+    }
+
     return query
   }
 
   render() {
-    const { classes, owner, repo, number: num } = this.props
+    const { classes } = this.props
+    const { owner, repo, number: num } = this.props
 
     return (
       <React.Fragment>
@@ -46,7 +60,10 @@ class IssuePage extends React.Component<IIssuePage & WithStyles<typeof styles>, 
           </GoBackLink>
 
           <Typography variant="h5" color="inherit" noWrap={true}>
-            Github {owner}/{repo} #{num}
+            Github{' '}
+            {!!owner && !!repo && !!num
+              ? owner + '/' + repo + ' #' + num
+              : 'issue'}
           </Typography>
         </MainMenu>
         <IssueOverviewConnected {...{ owner, repo, number: num }} />
@@ -55,4 +72,4 @@ class IssuePage extends React.Component<IIssuePage & WithStyles<typeof styles>, 
   }
 }
 
-export default withStyles(styles)(IssuePage)
+export default withRouter(withStyles(styles)(Issue))

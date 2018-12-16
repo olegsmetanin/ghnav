@@ -2,7 +2,10 @@ import { actionTypes } from './itemActions'
 import { handleActions } from 'common/redux/handleActions'
 
 export const initialState = {
-  error: false
+  error: null,
+  process: {
+    isLoading: true
+  }
 }
 
 interface IState {

@@ -1,7 +1,11 @@
 import { IState, listReducer } from '../listReducer'
 import { failure, load, loadSuccess } from '../listActions'
 /* eslint-env jest */
-import { issueListErrorSelector, issueListQuerySelector, issueListValueSelector } from '../listSelectors'
+import {
+  issueListErrorSelector,
+  issueListQuerySelector,
+  issueListValueSelector
+} from '../listSelectors'
 
 describe('IssueList reducer', () => {
   it('work well with selectors', () => {
@@ -31,10 +35,14 @@ describe('IssueList reducer', () => {
     const initState: IState = {
       value: [
         {
-          id: 1,
+          id: '1',
           number: '1',
-          owner: 'owner',
-          repo: 'repo'
+          title: 'title',
+          created_at: '2018-01-01',
+          user: {
+            login: 'login'
+          },
+          body: 'body'
         }
       ]
     }
@@ -47,15 +55,33 @@ describe('IssueList reducer', () => {
     }, initState)
 
     expect(state).toEqual({
+      error: null,
       process: {},
       query: { add: true, qwe: 123 },
-      value: [{ id: 1, number: '1', owner: 'owner', repo: 'repo' }, { asd: 123 }]
+      value: [
+        {
+          body: 'body',
+          created_at: '2018-01-01',
+          id: '1',
+          number: '1',
+          title: 'title',
+          user: { login: 'login' }
+        },
+        { asd: 123 }
+      ]
     })
 
     const fullState = { issueList: state }
 
     expect(issueListValueSelector(fullState)).toEqual([
-      { id: 1, number: '1', owner: 'owner', repo: 'repo' },
+      {
+        body: 'body',
+        created_at: '2018-01-01',
+        id: '1',
+        number: '1',
+        title: 'title',
+        user: { login: 'login' }
+      },
       { asd: 123 }
     ])
     expect(issueListQuerySelector(fullState)).toEqual({ add: true, qwe: 123 })

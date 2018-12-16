@@ -1,19 +1,29 @@
+import * as React from 'react'
+
+// import { IHistory } from 'common/history'
+import { Index } from '../pages/index'
 /* eslint-env jest */
-import Index from '../pages/index'
+import IndexPage from '../pages/index'
 import { Provider } from 'react-redux'
-import React from 'react'
+// import Router from 'next/router'
 import configureMockStore from 'redux-mock-store'
 import createSagaMiddleware from 'redux-saga'
-import { history } from 'common/history'
+import  { historyStab } from 'common/history/__tests__/history.stab'
 import { mount } from 'enzyme'
 import renderer from 'react-test-renderer'
+import { routerStab } from 'common/router/__tests__/router.stab'
 
-jest.mock('common/history')
+// import { RouterProps, SingletonRouter } from 'next/router'
+
 
 const sagaMiddleware = createSagaMiddleware()
 const mockStore = configureMockStore([sagaMiddleware])
 
 describe('Index', () => {
+
+
+
+
   it('renders correct', () => {
     const initialState = {
       issueList: {
@@ -29,11 +39,19 @@ describe('Index', () => {
     const store = mockStore(initialState)
     const props = {
       owner: 'qwe',
-      repo: 'asd'
+      repo: 'asd',
+      filter: {
+        state: 'all'
+      },
+      router: {
+        asPath: '/?owner=zeit&repo=next.js',
+      },
+      history: historyStab()
     }
+
     const component = renderer.create(
       <Provider store={store}>
-        <Index {...props} />
+        <IndexPage {...props}/>
       </Provider>
     )
     const tree = component.toJSON()
@@ -41,33 +59,16 @@ describe('Index', () => {
   })
 
   it('getInitialProps works', async () => {
-    const initialState = {
-      issueList: {
-        query: {
-          filter: {
-            state: 'all'
-          }
-        },
-        process: {}
-      },
-      repoList: {}
-    }
 
-    const store = mockStore(initialState)
-    const props = await Index.getInitialProps({
+    const initProps = await Index['getInitialProps']({
       ctx: {
-        store,
-        asPath: '/owner=zeit&repo=next.js',
+        store: null,
+        asPath: '/?owner=zeit&repo=next.js',
         isServer: false
       }
     })
-    const component = renderer.create(
-      <Provider store={store}>
-        <Index {...props} />
-      </Provider>
-    )
-    const tree = component.toJSON()
-    expect(tree).toMatchSnapshot()
+
+    expect(initProps).toEqual({ filter: { state: 'all' }, owner: 'zeit', repo: 'next.js' })
   })
 
   it('getInitialProps works on server', async () => {
@@ -76,79 +77,93 @@ describe('Index', () => {
         store: {
           dispatch: jest.fn()
         },
-        asPath: '/owner=zeit&repo=next.js',
+        asPath: '/?owner=zeit&repo=next.js',
         isServer: true
       }
     }
 
-    await Index.getInitialProps(props)
+    await Index['getInitialProps'](props)
 
     expect(props.ctx.store.dispatch).toBeCalled()
   })
 
-  it('getInitialProps with come back', async () => {
-    history.isComeBack = true
-
+  it('getInitialProps does not dispatch if owner and repo is undefined ', async () => {
     const props = {
       ctx: {
         store: {
           dispatch: jest.fn()
         },
-        asPath: '/owner=zeit&repo=next.js',
-        isServer: false
+        asPath: '/',
+        isServer: true
       }
     }
 
-    await Index.getInitialProps(props)
+    await Index['getInitialProps'](props)
 
     expect(props.ctx.store.dispatch).toBeCalledTimes(0)
   })
 
-  it('works with router on repo change with autocomplete', async () => {
+  it('works on change repo', async () => {
+
     const initialState = {
       issueList: {
         query: {
+          owner: 'owner',
+          repo: 'repo',
           filter: {
             state: 'all'
           }
         },
         process: {}
       },
-      repoList: {}
-    }
-    const props = {
-      owner: 'qwe',
-      repo: 'asd'
+      repoList: {
+        value: [
+          { id: 0, owner: 'owner', repo: 'repo' }
+        ]
+      },
     }
 
-    const router = {
-      push: jest.fn()
+    const props = {
+      owner: 'owner',
+      repo: 'repo',
+      history: historyStab({
+        push: jest.fn()
+      }),
+      router: routerStab({
+        asPath: '/?owner=zeit&repo=next.js',
+        pathname: '',
+        route: '/',
+      })
     }
+
+    // const router =
 
     const store = configureMockStore()(initialState)
     const tree = mount(
       <Provider store={store}>
-        <Index {...props} router={router} />
+        <Index {...props}/>
       </Provider>
     )
 
-    /*
-     * It is hard to call wrapper.simulate('change', { target: { value: 'xyz/cxz' } })
-     * because jsdom is not suitable for Popper.js
-     * For example https://github.com/FezVrasta/popper.js/issues/478
-     */
-    const item = tree.find('Connect(WithStyles(BaseRepoSelect))').first()
-    item.props().onChange('asd/zcx')
+    const item = tree.find('input').first()
 
-    await new Promise(resolve => setImmediate(resolve))
+    item.simulate('change', { target: { value: 'owner/repo' } })
 
-    expect(router.push).toBeCalledWith({ pathname: '/', query: { owner: 'asd', repo: 'zcx' } })
+    const menuItem = tree.find('MenuItem').first()
+
+    menuItem.simulate('click')
+
+    expect(props.history.push).toBeCalledWith({"pathname": "/", "query": {"filter": {"state": "all"}, "owner": "owner", "repo": "repo"}}, {"shallow": true})
+
   })
 
   it('works with router on filter change', async () => {
+
     const initialState = {
       issueList: {
         query: {
+          owner: 'owner',
+          repo: 'repo',
           filter: {
             state: 'all'
           }
@@ -157,19 +172,25 @@ describe('Index', () => {
       },
       repoList: {}
     }
-    const props = {
-      owner: 'qwe',
-      repo: 'asd'
-    }
 
-    const router = {
-      push: jest.fn()
+
+    const props = {
+      owner: 'owner',
+      repo: 'repo',
+      history: historyStab({
+        push: jest.fn()
+      }),
+      router: routerStab({
+        asPath: '/?owner=zeit&repo=next.js',
+        pathname: '',
+        route: '/',
+      })
     }
 
     const store = configureMockStore()(initialState)
     const tree = mount(
       <Provider store={store}>
-        <Index {...props} router={router} />
+        <Index {...props}/>
       </Provider>
     )
 
@@ -179,13 +200,42 @@ describe('Index', () => {
 
     const menuItem = tree.find('MenuItem').at(2)
     expect(menuItem.exists()).toBe(true)
+
     menuItem.simulate('click')
 
     await new Promise(resolve => setImmediate(resolve))
 
-    expect(router.push).toBeCalledWith({
-      pathname: '/',
-      query: { 'filter.state': 'closed', owner: 'qwe', repo: 'asd' }
-    })
+    expect(props.history.push).toBeCalledWith({"pathname": "/", "query": {"filter": {"state": "closed"}, "owner": "zeit", "repo": "next.js"}}, {"shallow": true})
   })
+
+  it('works if repo and owner is undefined', async () => {
+
+    const initialState = {
+      issueList: {
+        process: {}
+      },
+      repoList: {}
+    }
+
+    const props = {
+      owner: 'owner',
+      router: {
+        asPath: '/',
+      },
+      history: historyStab({
+        push: jest.fn()
+      })
+    }
+
+    const store = configureMockStore()(initialState)
+    const tree = mount(
+      <Provider store={store}>
+        <IndexPage {...props}/>
+      </Provider>
+    )
+
+    expect(tree.find('WithStyles(BaseLayout)').props().title).toEqual('Github issues')
+  })
+
+
 })

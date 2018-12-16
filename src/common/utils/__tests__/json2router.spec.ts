@@ -3,7 +3,10 @@ import { json2router } from '../json2router'
 
 describe('json2router', () => {
   it('trim', () => {
-    expect(json2router({ a: { b: { c: 1, d: 2 } } })).toEqual({ 'a.b.c': 1, 'a.b.d': 2 })
+    expect(json2router({ a: { b: { c: 1, d: 2 } } })).toEqual({
+      'a.b.c': 1,
+      'a.b.d': 2
+    })
     expect(
       json2router({
         owner: 'owner',
@@ -18,6 +21,8 @@ describe('json2router', () => {
         }
       )
     ).toEqual({ 'a.b.c': 1, 'a.b.d': 2 })
-    expect(json2router({ a: { b: { c: 1, d: {} } } }, { maxDepth: 2 })).toEqual({ 'a.b': { c: 1, d: {} } })
+    expect(json2router({ a: { b: { c: 1, d: {} } } }, { maxDepth: 2 })).toEqual(
+      { 'a.b': { c: 1, d: {} } }
+    )
   })
 })

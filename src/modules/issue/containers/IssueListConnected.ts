@@ -1,4 +1,5 @@
 import {
+  issueListErrorSelector,
   issueListProcessSelector,
   issueListQuerySelector,
   issueListValueSelector
@@ -11,7 +12,8 @@ import { load } from 'modules/issue/redux/listActions'
 const mapStateToProps = state => ({
   items: issueListValueSelector(state),
   query: issueListQuerySelector(state),
-  process: issueListProcessSelector(state)
+  process: issueListProcessSelector(state),
+  error: issueListErrorSelector(state)
 })
 
 const mapDispatchToProps = dispatch => ({

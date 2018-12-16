@@ -2,39 +2,41 @@
 
 exports[`IssueList renders button in loading state 1`] = `
 <div>
-  <div>
+  <div
+    className="BaseIssueListMenu-root-4"
+  >
     <header
-      className="MuiPaper-root-16 MuiPaper-elevation4-22 MuiAppBar-root-7 MuiAppBar-positionFixed-8 MuiAppBar-colorDefault-13 mui-fixed BaseIssueListMenu-appBar-4"
+      className="MuiPaper-root-17 MuiPaper-elevation4-23 MuiAppBar-root-8 MuiAppBar-positionFixed-9 MuiAppBar-colorDefault-14 mui-fixed BaseIssueListMenu-appBar-5"
     >
       <div
-        className="MuiToolbar-root-43 MuiToolbar-dense-46 MuiToolbar-gutters-44"
+        className="MuiToolbar-root-44 MuiToolbar-dense-47 MuiToolbar-gutters-45"
       >
         <div
-          className="BaseIssueListMenu-filter-5"
+          className="BaseIssueListMenu-filter-6"
         >
           <div
-            className="BaseIssueListMenu-filterItem-6"
+            className="BaseIssueListMenu-filterItem-7"
           >
             <h6
-              className="MuiTypography-root-47 MuiTypography-h6-64 MuiTypography-colorInherit-76"
+              className="MuiTypography-root-48 MuiTypography-h6-65 MuiTypography-colorInherit-77"
             >
               State
             </h6>
           </div>
           <div
-            className="BaseIssueListMenu-filterItem-6"
+            className="BaseIssueListMenu-filterItem-7"
           >
             <div
-              className="MuiInputBase-root-102 MuiInput-root-89 MuiInput-underline-93"
+              className="MuiInputBase-root-103 MuiInput-root-90 MuiInput-underline-94"
               onClick={[Function]}
             >
               <div
-                className="MuiSelect-root-82"
+                className="MuiSelect-root-83"
               >
                 <div
                   aria-haspopup="true"
                   aria-pressed="false"
-                  className="MuiSelect-select-83 MuiSelect-selectMenu-86 MuiInputBase-input-112 MuiInput-input-97"
+                  className="MuiSelect-select-84 MuiSelect-selectMenu-87 MuiInputBase-input-113 MuiInput-input-98"
                   onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -52,7 +54,7 @@ exports[`IssueList renders button in loading state 1`] = `
                 />
                 <svg
                   aria-hidden="true"
-                  className="MuiSvgIcon-root-119 MuiSelect-icon-88"
+                  className="MuiSvgIcon-root-120 MuiSelect-icon-89"
                   focusable="false"
                   role="presentation"
                   viewBox="0 0 24 24"
@@ -69,79 +71,46 @@ exports[`IssueList renders button in loading state 1`] = `
     </header>
   </div>
   <div
-    className="BaseIssueList-progress-3"
+    style={
+      Object {
+        "display": "flex",
+        "marginTop": 100,
+        "width": "100%",
+      }
+    }
   >
     <div
-      className="MuiLinearProgress-root-266 MuiLinearProgress-colorPrimary-267"
-      role="progressbar"
+      style={
+        Object {
+          "margin": "auto",
+        }
+      }
     >
       <div
-        className="MuiLinearProgress-bar-274 MuiLinearProgress-barColorPrimary-275 MuiLinearProgress-bar1Indeterminate-277"
-        style={Object {}}
-      />
-      <div
-        className="MuiLinearProgress-bar-274 MuiLinearProgress-barColorPrimary-275 MuiLinearProgress-bar2Indeterminate-280"
-        style={Object {}}
-      />
-    </div>
-  </div>
-  <div
-    className="MuiGrid-container-132"
-  >
-    <div
-      className="MuiGrid-item-133 MuiGrid-grid-xs-12-172 BaseIssueList-gridItem-1"
-    >
-      <div>
-        <div
-          className="MuiPaper-root-16 MuiPaper-elevation2-20 MuiPaper-rounded-17 BaseIssueListItem-paper-229"
-        >
-          <div>
-            <a
-              href="/issue?owner=owner&repo=repo&number=12"
-              onClick={[Function]}
-            >
-              <h6
-                className="MuiTypography-root-47 MuiTypography-h6-64 MuiTypography-colorInherit-76"
-              >
-                #
-                12
-                 
-                title
-                 
-                create_at
-              </h6>
-            </a>
-          </div>
-          <div />
-        </div>
-      </div>
-    </div>
-    <div
-      className="BaseIssueList-submitButtonWrap-2"
-    >
-      <button
-        className="MuiButtonBase-root-256 MuiButtonBase-disabled-257 MuiButton-root-230 MuiButton-contained-241 MuiButton-containedPrimary-242 MuiButton-raised-244 MuiButton-raisedPrimary-245 MuiButton-disabled-250"
-        disabled={true}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex="-1"
-        type="submit"
+        className="MuiCircularProgress-root-267 MuiCircularProgress-colorPrimary-270 MuiCircularProgress-indeterminate-269"
+        role="progressbar"
+        style={
+          Object {
+            "height": 40,
+            "width": 40,
+          }
+        }
       >
-        <span
-          className="MuiButton-label-231"
+        <svg
+          className="MuiCircularProgress-svg-272"
+          viewBox="22 22 44 44"
         >
-          Loading...
-        </span>
-      </button>
+          <circle
+            className="MuiCircularProgress-circle-273 MuiCircularProgress-circleIndeterminate-275"
+            cx={44}
+            cy={44}
+            fill="none"
+            r={20.2}
+            strokeWidth={3.6}
+            style={Object {}}
+          />
+        </svg>
+      </div>
     </div>
   </div>
 </div>
@@ -149,39 +118,41 @@ exports[`IssueList renders button in loading state 1`] = `
 
 exports[`IssueList renders correct 1`] = `
 <div>
-  <div>
+  <div
+    className="BaseIssueListMenu-root-4"
+  >
     <header
-      className="MuiPaper-root-16 MuiPaper-elevation4-22 MuiAppBar-root-7 MuiAppBar-positionFixed-8 MuiAppBar-colorDefault-13 mui-fixed BaseIssueListMenu-appBar-4"
+      className="MuiPaper-root-17 MuiPaper-elevation4-23 MuiAppBar-root-8 MuiAppBar-positionFixed-9 MuiAppBar-colorDefault-14 mui-fixed BaseIssueListMenu-appBar-5"
     >
       <div
-        className="MuiToolbar-root-43 MuiToolbar-dense-46 MuiToolbar-gutters-44"
+        className="MuiToolbar-root-44 MuiToolbar-dense-47 MuiToolbar-gutters-45"
       >
         <div
-          className="BaseIssueListMenu-filter-5"
+          className="BaseIssueListMenu-filter-6"
         >
           <div
-            className="BaseIssueListMenu-filterItem-6"
+            className="BaseIssueListMenu-filterItem-7"
           >
             <h6
-              className="MuiTypography-root-47 MuiTypography-h6-64 MuiTypography-colorInherit-76"
+              className="MuiTypography-root-48 MuiTypography-h6-65 MuiTypography-colorInherit-77"
             >
               State
             </h6>
           </div>
           <div
-            className="BaseIssueListMenu-filterItem-6"
+            className="BaseIssueListMenu-filterItem-7"
           >
             <div
-              className="MuiInputBase-root-102 MuiInput-root-89 MuiInput-underline-93"
+              className="MuiInputBase-root-103 MuiInput-root-90 MuiInput-underline-94"
               onClick={[Function]}
             >
               <div
-                className="MuiSelect-root-82"
+                className="MuiSelect-root-83"
               >
                 <div
                   aria-haspopup="true"
                   aria-pressed="false"
-                  className="MuiSelect-select-83 MuiSelect-selectMenu-86 MuiInputBase-input-112 MuiInput-input-97"
+                  className="MuiSelect-select-84 MuiSelect-selectMenu-87 MuiInputBase-input-113 MuiInput-input-98"
                   onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -199,7 +170,7 @@ exports[`IssueList renders correct 1`] = `
                 />
                 <svg
                   aria-hidden="true"
-                  className="MuiSvgIcon-root-119 MuiSelect-icon-88"
+                  className="MuiSvgIcon-root-120 MuiSelect-icon-89"
                   focusable="false"
                   role="presentation"
                   viewBox="0 0 24 24"
@@ -216,14 +187,14 @@ exports[`IssueList renders correct 1`] = `
     </header>
   </div>
   <div
-    className="MuiGrid-container-132"
+    className="MuiGrid-container-133"
   >
     <div
-      className="MuiGrid-item-133 MuiGrid-grid-xs-12-172 BaseIssueList-gridItem-1"
+      className="MuiGrid-item-134 MuiGrid-grid-xs-12-173 BaseIssueList-gridItem-1"
     >
       <div>
         <div
-          className="MuiPaper-root-16 MuiPaper-elevation2-20 MuiPaper-rounded-17 BaseIssueListItem-paper-229"
+          className="MuiPaper-root-17 MuiPaper-elevation2-21 MuiPaper-rounded-18 BaseIssueListItem-paper-230"
         >
           <div>
             <a
@@ -231,14 +202,19 @@ exports[`IssueList renders correct 1`] = `
               onClick={[Function]}
             >
               <h6
-                className="MuiTypography-root-47 MuiTypography-h6-64 MuiTypography-colorInherit-76"
+                className="MuiTypography-root-48 MuiTypography-h6-65 MuiTypography-colorInherit-77"
+              >
+                title
+              </h6>
+              <h6
+                className="MuiTypography-root-48 MuiTypography-subtitle1-66 MuiTypography-colorInherit-77"
               >
                 #
                 12
-                 
-                title
-                 
-                create_at
+                 opened 
+                5 days ago
+                 by 
+                qwe
               </h6>
             </a>
           </div>
@@ -250,7 +226,7 @@ exports[`IssueList renders correct 1`] = `
       className="BaseIssueList-submitButtonWrap-2"
     >
       <button
-        className="MuiButtonBase-root-256 MuiButton-root-230 MuiButton-contained-241 MuiButton-containedPrimary-242 MuiButton-raised-244 MuiButton-raisedPrimary-245"
+        className="MuiButtonBase-root-257 MuiButton-root-231 MuiButton-contained-242 MuiButton-containedPrimary-243 MuiButton-raised-245 MuiButton-raisedPrimary-246"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -267,15 +243,398 @@ exports[`IssueList renders correct 1`] = `
         type="submit"
       >
         <span
-          className="MuiButton-label-231"
+          className="MuiButton-label-232"
         >
           Load more
         </span>
         <span
-          className="MuiTouchRipple-root-259"
+          className="MuiTouchRipple-root-260"
         />
       </button>
     </div>
+  </div>
+</div>
+`;
+
+exports[`IssueList renders if repo is not defined 1`] = `
+<div>
+  <div
+    className="BaseIssueListMenu-root-4"
+  >
+    <header
+      className="MuiPaper-root-17 MuiPaper-elevation4-23 MuiAppBar-root-8 MuiAppBar-positionFixed-9 MuiAppBar-colorDefault-14 mui-fixed BaseIssueListMenu-appBar-5"
+    >
+      <div
+        className="MuiToolbar-root-44 MuiToolbar-dense-47 MuiToolbar-gutters-45"
+      >
+        <div
+          className="BaseIssueListMenu-filter-6"
+        >
+          <div
+            className="BaseIssueListMenu-filterItem-7"
+          >
+            <h6
+              className="MuiTypography-root-48 MuiTypography-h6-65 MuiTypography-colorInherit-77"
+            >
+              State
+            </h6>
+          </div>
+          <div
+            className="BaseIssueListMenu-filterItem-7"
+          >
+            <div
+              className="MuiInputBase-root-103 MuiInput-root-90 MuiInput-underline-94"
+              onClick={[Function]}
+            >
+              <div
+                className="MuiSelect-root-83"
+              >
+                <div
+                  aria-haspopup="true"
+                  aria-pressed="false"
+                  className="MuiSelect-select-84 MuiSelect-selectMenu-87 MuiInputBase-input-113 MuiInput-input-98"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex={0}
+                >
+                  All
+                </div>
+                <input
+                  id="state"
+                  name="state"
+                  type="hidden"
+                  value="all"
+                />
+                <svg
+                  aria-hidden="true"
+                  className="MuiSvgIcon-root-120 MuiSelect-icon-89"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7 10l5 5 5-5z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  <div>
+    No repo is defined
+    .
+     
+    <span>
+      Try
+       
+      <a
+        href="/?owner=zeit&repo=next.js"
+        onClick={[Function]}
+      >
+        zeit/next.js
+      </a>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`IssueList renders if the items property is empty 1`] = `
+<div>
+  <div
+    className="BaseIssueListMenu-root-4"
+  >
+    <header
+      className="MuiPaper-root-17 MuiPaper-elevation4-23 MuiAppBar-root-8 MuiAppBar-positionFixed-9 MuiAppBar-colorDefault-14 mui-fixed BaseIssueListMenu-appBar-5"
+    >
+      <div
+        className="MuiToolbar-root-44 MuiToolbar-dense-47 MuiToolbar-gutters-45"
+      >
+        <div
+          className="BaseIssueListMenu-filter-6"
+        >
+          <div
+            className="BaseIssueListMenu-filterItem-7"
+          >
+            <h6
+              className="MuiTypography-root-48 MuiTypography-h6-65 MuiTypography-colorInherit-77"
+            >
+              State
+            </h6>
+          </div>
+          <div
+            className="BaseIssueListMenu-filterItem-7"
+          >
+            <div
+              className="MuiInputBase-root-103 MuiInput-root-90 MuiInput-underline-94"
+              onClick={[Function]}
+            >
+              <div
+                className="MuiSelect-root-83"
+              >
+                <div
+                  aria-haspopup="true"
+                  aria-pressed="false"
+                  className="MuiSelect-select-84 MuiSelect-selectMenu-87 MuiInputBase-input-113 MuiInput-input-98"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex={0}
+                >
+                  All
+                </div>
+                <input
+                  id="state"
+                  name="state"
+                  type="hidden"
+                  value="all"
+                />
+                <svg
+                  aria-hidden="true"
+                  className="MuiSvgIcon-root-120 MuiSelect-icon-89"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7 10l5 5 5-5z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  <div
+    className="MuiGrid-container-133"
+  >
+    <div>
+      No items
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IssueList renders isLoadingMore state 1`] = `
+<div>
+  <div
+    className="BaseIssueListMenu-root-4"
+  >
+    <header
+      className="MuiPaper-root-17 MuiPaper-elevation4-23 MuiAppBar-root-8 MuiAppBar-positionFixed-9 MuiAppBar-colorDefault-14 mui-fixed BaseIssueListMenu-appBar-5"
+    >
+      <div
+        className="MuiToolbar-root-44 MuiToolbar-dense-47 MuiToolbar-gutters-45"
+      >
+        <div
+          className="BaseIssueListMenu-filter-6"
+        >
+          <div
+            className="BaseIssueListMenu-filterItem-7"
+          >
+            <h6
+              className="MuiTypography-root-48 MuiTypography-h6-65 MuiTypography-colorInherit-77"
+            >
+              State
+            </h6>
+          </div>
+          <div
+            className="BaseIssueListMenu-filterItem-7"
+          >
+            <div
+              className="MuiInputBase-root-103 MuiInput-root-90 MuiInput-underline-94"
+              onClick={[Function]}
+            >
+              <div
+                className="MuiSelect-root-83"
+              >
+                <div
+                  aria-haspopup="true"
+                  aria-pressed="false"
+                  className="MuiSelect-select-84 MuiSelect-selectMenu-87 MuiInputBase-input-113 MuiInput-input-98"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex={0}
+                >
+                  All
+                </div>
+                <input
+                  id="state"
+                  name="state"
+                  type="hidden"
+                  value="all"
+                />
+                <svg
+                  aria-hidden="true"
+                  className="MuiSvgIcon-root-120 MuiSelect-icon-89"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7 10l5 5 5-5z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  <div
+    className="MuiGrid-container-133"
+  >
+    <div
+      className="MuiGrid-item-134 MuiGrid-grid-xs-12-173 BaseIssueList-gridItem-1"
+    >
+      <div>
+        <div
+          className="MuiPaper-root-17 MuiPaper-elevation2-21 MuiPaper-rounded-18 BaseIssueListItem-paper-230"
+        >
+          <div>
+            <a
+              href="/issue?owner=owner&repo=repo&number=12"
+              onClick={[Function]}
+            >
+              <h6
+                className="MuiTypography-root-48 MuiTypography-h6-65 MuiTypography-colorInherit-77"
+              >
+                title
+              </h6>
+              <h6
+                className="MuiTypography-root-48 MuiTypography-subtitle1-66 MuiTypography-colorInherit-77"
+              >
+                #
+                12
+                 opened 
+                5 days ago
+                 by 
+                qwe
+              </h6>
+            </a>
+          </div>
+          <div />
+        </div>
+      </div>
+    </div>
+    <div
+      className="BaseIssueList-submitButtonWrap-2"
+    >
+      <button
+        className="MuiButtonBase-root-257 MuiButtonBase-disabled-258 MuiButton-root-231 MuiButton-contained-242 MuiButton-containedPrimary-243 MuiButton-raised-245 MuiButton-raisedPrimary-246 MuiButton-disabled-251"
+        disabled={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="-1"
+        type="submit"
+      >
+        <span
+          className="MuiButton-label-232"
+        >
+          Loading...
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IssueList renders on error 1`] = `
+<div>
+  <div
+    className="BaseIssueListMenu-root-4"
+  >
+    <header
+      className="MuiPaper-root-17 MuiPaper-elevation4-23 MuiAppBar-root-8 MuiAppBar-positionFixed-9 MuiAppBar-colorDefault-14 mui-fixed BaseIssueListMenu-appBar-5"
+    >
+      <div
+        className="MuiToolbar-root-44 MuiToolbar-dense-47 MuiToolbar-gutters-45"
+      >
+        <div
+          className="BaseIssueListMenu-filter-6"
+        >
+          <div
+            className="BaseIssueListMenu-filterItem-7"
+          >
+            <h6
+              className="MuiTypography-root-48 MuiTypography-h6-65 MuiTypography-colorInherit-77"
+            >
+              State
+            </h6>
+          </div>
+          <div
+            className="BaseIssueListMenu-filterItem-7"
+          >
+            <div
+              className="MuiInputBase-root-103 MuiInput-root-90 MuiInput-underline-94"
+              onClick={[Function]}
+            >
+              <div
+                className="MuiSelect-root-83"
+              >
+                <div
+                  aria-haspopup="true"
+                  aria-pressed="false"
+                  className="MuiSelect-select-84 MuiSelect-selectMenu-87 MuiInputBase-input-113 MuiInput-input-98"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex={0}
+                >
+                  All
+                </div>
+                <input
+                  id="state"
+                  name="state"
+                  type="hidden"
+                  value="all"
+                />
+                <svg
+                  aria-hidden="true"
+                  className="MuiSvgIcon-root-120 MuiSelect-icon-89"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7 10l5 5 5-5z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  <div>
+    Some error
+    .
+     
   </div>
 </div>
 `;

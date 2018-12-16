@@ -24,7 +24,9 @@ exports[`IssueOverview renders correct 1`] = `
       >
         <h6
           className="MuiTypography-root-128 MuiTypography-h6-145 MuiTypography-colorInherit-157"
-        />
+        >
+          a few seconds ago
+        </h6>
       </div>
       <div
         className="MuiGrid-item-32 BaseIssueOverview-content-3"

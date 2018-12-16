@@ -1,7 +1,8 @@
+import * as React from 'react'
+
 /* eslint-env jest */
 import Issue from '../pages/issue'
 import { Provider } from 'react-redux'
-import React from 'react'
 import { all } from 'redux-saga/effects'
 import configureMockStore from 'redux-mock-store'
 import createSagaMiddleware from 'redux-saga'
@@ -19,10 +20,28 @@ describe('Issue', () => {
 
   it('renders correct', async () => {
     const store = mockStore({ issue: { value: null } })
-    const props = await Issue.getInitialProps({
+    const props = await Issue['getInitialProps']({
       ctx: {
         store,
         asPath: '/issue?owner=zeit&repo=next.js&number=5638'
+      }
+    })
+    const component = renderer.create(
+      <Provider store={store}>
+        <Issue {...props} />
+      </Provider>
+    )
+    const tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders correct without required parameters', async () => {
+    const store = mockStore({ issue: { value: null } })
+    const props = await Issue['getInitialProps']({
+      ctx: {
+        store,
+        isServer: true,
+        asPath: '/issue?zxc=asd'
       }
     })
     const component = renderer.create(
@@ -49,9 +68,10 @@ describe('Issue', () => {
       body: issueFixture
     })
 
-    await Issue.getInitialProps({
+    await Issue['getInitialProps']({
       ctx: {
         store,
+        isServer: true,
         asPath: '/issue?owner=zeit&repo=next.js&number=5638'
       }
     })
@@ -76,9 +96,10 @@ describe('Issue', () => {
       body: { error: 'no data' }
     })
 
-    await Issue.getInitialProps({
+    await Issue['getInitialProps']({
       ctx: {
         store,
+        isServer: true,
         asPath: '/issue?owner=zeit&repo=next.js&number=5638'
       }
     })

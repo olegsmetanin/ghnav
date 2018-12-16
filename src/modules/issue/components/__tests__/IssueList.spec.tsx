@@ -1,6 +1,8 @@
+import * as React from 'react'
+
 /* eslint-env jest */
 import { IssueList } from '../IssueList'
-import React from 'react'
+import { RepoNotDefinedError } from 'common/errors'
 import { cloneDeep } from 'lodash'
 import { mount } from 'enzyme'
 import renderer from 'react-test-renderer'
@@ -9,7 +11,9 @@ describe('IssueList', () => {
   const stubProps = {
     owner: 'owner',
     repo: 'repo',
-    number: '1',
+    filter: {
+      state: 'all'
+    },
     page: 1,
     per_page: 10,
     items: [
@@ -19,20 +23,26 @@ describe('IssueList', () => {
         // markdown
         body: 'I have iPhone 5s, 6, 7, 8, XS',
         title: 'title',
-        create_at: 'create_at'
+        user: {
+          login: 'qwe'
+        },
+        created_at: '2018-12-12'
       }
     ],
     query: {
       owner: 'owner',
       repo: 'repo',
-      number: 'number',
       page: 1,
       per_page: 10,
       filter: {
         state: 'all'
       }
     },
-    process: {},
+    error: null,
+    process: {
+      isLoading: false,
+      isLoadingMore: false
+    },
     onLoad: () => {
       return
     },
@@ -56,11 +66,44 @@ describe('IssueList', () => {
     expect(tree).toMatchSnapshot()
   })
 
+  it('renders isLoadingMore state', async () => {
+    const props = cloneDeep(stubProps)
+    props.process.isLoadingMore = true
+    const component = renderer.create(<IssueList {...props} />)
+    const tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders if the items property is empty', async () => {
+    const props = cloneDeep(stubProps)
+    props.items = []
+    const component = renderer.create(<IssueList {...props} />)
+    const tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders if repo is not defined', async () => {
+    const props = cloneDeep(stubProps)
+    props.error = new RepoNotDefinedError('No repo is defined')
+    const component = renderer.create(<IssueList {...props} />)
+    const tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders on error', async () => {
+    const props = cloneDeep(stubProps)
+    props.error = new Error('Some error')
+    const component = renderer.create(<IssueList {...props} />)
+    const tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
   it('scrolls on top on filter change', async () => {
     const props = cloneDeep(stubProps)
 
     const scrollTo = jest.fn()
-    global.scrollTo = scrollTo
+    const SCROLL_TO = 'scrollTo'
+    global[SCROLL_TO] = scrollTo
 
     const tree = mount(<IssueList {...props} />)
 
@@ -89,6 +132,34 @@ describe('IssueList', () => {
     expect(scrollTo).toBeCalledWith(0, 0)
   })
 
+  it('calls onLoad if invalidation is required', async () => {
+    const props = cloneDeep(stubProps)
+
+    props.onLoad = jest.fn()
+
+    const tree = mount(<IssueList {...props} />)
+
+    const newProps = {
+      query: {
+        ...props.query,
+        filter: {
+          state: 'all'
+        }
+      },
+      owner: 'asd'
+    }
+
+    await tree.setProps(newProps)
+
+    expect(props.onLoad).toBeCalledWith({
+      filter: { state: 'all' },
+      owner: 'asd',
+      page: 1,
+      per_page: 10,
+      repo: 'repo'
+    })
+  })
+
   it('calls onFilterChange', async () => {
     const props = cloneDeep(stubProps)
 
@@ -110,7 +181,7 @@ describe('IssueList', () => {
     expect(filter).toEqual({ state: 'closed' })
   })
 
-  it('calls onFilterChange', async () => {
+  it('do not call onFilterChange if it is undefined', async () => {
     const props = cloneDeep(stubProps)
 
     delete props.onFilterChange
@@ -124,7 +195,5 @@ describe('IssueList', () => {
     const menuItem = tree.find('MenuItem').at(2)
     expect(menuItem.exists()).toBe(true)
     menuItem.simulate('click')
-
-    // expect(props.onFilterChange).toBeCalledTimes(0)
   })
 })
